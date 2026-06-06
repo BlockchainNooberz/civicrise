@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, ChevronUp, ExternalLink, DollarSign, TrendingUp, Shield, Cpu, Globe, Zap, Building2, Users, Star, Award, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp, TrendingUp, Zap, Send, Mail, Globe, Twitter, Youtube, Phone, Copy, CheckCheck } from 'lucide-react';
 
 const PARTNERS = [
   // Tech & Defense
@@ -694,12 +694,224 @@ export default function InvestorPitch() {
         })}
       </div>
 
+      {/* MrBeast FIRST — priority outreach card */}
+      <MrBeastOutreach />
+
+      {/* Outreach Strategy */}
+      <OutreachStrategy />
+
       {/* Coalition footer */}
       <div className="glass rounded-3xl p-8 border border-primary/20 text-center">
         <div className="font-display font-black text-3xl md:text-4xl text-gradient-gold mb-3">LET'S MAKE IT HAPPEN!</div>
         <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
           No single organization can solve homelessness. But <strong className="text-foreground">this coalition</strong> — the world's most powerful people, companies, and institutions — can. Every partner gets exactly what they need. And 653,100 Americans get their lives back.
         </p>
+      </div>
+    </div>
+  );
+}
+
+function MrBeastOutreach() {
+  const [copied, setCopied] = useState(null);
+
+  const copyText = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const dmTemplate = `Hey Jimmy — I'm building something I think you'll genuinely love. Project Renaissance: a crypto-incentivized rehab city for 650,000 homeless Americans. They earn real coin, learn AI & trade skills, and graduate into jobs. I need your brain on the content side — this makes Beast Games look small. Can I get 20 minutes? Demo link: [YOUR_DEMO_LINK]`;
+
+  const emailTemplate = `Subject: Beast Games meets the biggest human transformation story ever told
+
+Jimmy,
+
+I'll keep it short because I know you value that.
+
+Project Renaissance: a privately operated, crypto-powered city where 650,000 homeless Americans earn digital currency, learn AI skills, and graduate into real jobs. The outcomes data is wild. The content potential is historic.
+
+I want Beast Games: Renaissance Edition to be the most-watched redemption story in human history — and I need you to make it real.
+
+20 minutes. That's all I'm asking. Here's the demo: [YOUR_DEMO_LINK]
+
+— [Your Name]`;
+
+  return (
+    <div className="glass rounded-3xl border-2 p-6 md:p-10 overflow-hidden relative"
+      style={{ borderColor: '#F59E0B60' }}>
+      <div className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{ background: 'radial-gradient(circle at 20% 50%, #F59E0B, transparent 60%)' }} />
+
+      <div className="relative">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="text-4xl">👑</span>
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-xs font-black tracking-widest mb-1">
+              🔥 PRIORITY #1 — REACH OUT FIRST
+            </div>
+            <h2 className="font-display font-black text-3xl md:text-4xl text-foreground">MrBeast Isn't Confirmed Yet.</h2>
+          </div>
+        </div>
+        <p className="text-muted-foreground mb-6 max-w-3xl leading-relaxed">
+          Jimmy Donaldson is the single highest-leverage first contact. His public endorsement unlocks every other conversation — it signals cultural legitimacy that no press release can buy. He hasn't heard the pitch yet.{' '}
+          <strong className="text-yellow-400">He needs to. Today.</strong>
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          {[
+            { icon: Twitter, label: 'X / Twitter DM', handle: '@MrBeast', color: '#1DA1F2', note: 'High read rate. Keep it 3 sentences + demo link.' },
+            { icon: Youtube, label: 'YouTube Business', handle: 'mrbeast.com/contact', color: '#FF0000', note: 'Official business inquiry — goes to his management team.' },
+            { icon: Mail, label: 'Direct Email', handle: 'Via Beast Industries', color: '#F59E0B', note: 'Reach through a known mutual contact or via his agent Reed Duchscher.' },
+          ].map(c => (
+            <div key={c.label} className="glass rounded-2xl p-4 border border-border/50">
+              <c.icon className="w-5 h-5 mb-2" style={{ color: c.color }} />
+              <div className="font-display font-bold text-sm text-foreground mb-0.5">{c.label}</div>
+              <div className="text-xs font-mono text-muted-foreground mb-2">{c.handle}</div>
+              <div className="text-xs text-muted-foreground leading-relaxed">{c.note}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-4">
+          <div className="text-xs font-bold text-yellow-400 tracking-widest uppercase mb-2">Copy-Ready Outreach Templates</div>
+
+          {[
+            { id: 'dm', label: '💬 DM / Short Message', text: dmTemplate },
+            { id: 'email', label: '📧 Email Template', text: emailTemplate },
+          ].map(t => (
+            <div key={t.id} className="glass rounded-xl border border-border/50 overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-border/30">
+                <span className="text-xs font-bold text-muted-foreground">{t.label}</span>
+                <button onClick={() => copyText(t.text, t.id)}
+                  className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-full border border-border/50 hover:border-yellow-400/40 transition-colors text-muted-foreground hover:text-yellow-400">
+                  {copied === t.id ? <CheckCheck className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                  {copied === t.id ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <pre className="text-xs text-muted-foreground p-4 whitespace-pre-wrap leading-relaxed font-body">{t.text}</pre>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function OutreachStrategy() {
+  const [open, setOpen] = useState(null);
+
+  const strategies = [
+    {
+      id: 'demo_link',
+      icon: Globe,
+      color: '#3B82F6',
+      title: 'Send the Private Demo Link',
+      subtitle: 'The most powerful first impression you can make.',
+      steps: [
+        'Share the /demo-access URL directly — no public post, no mass email. One link, one person, with their name in the message.',
+        'Use the phrase: "This was built for a specific tier of person. I think you\'re one of them."',
+        'Include the access key in a separate message — creates intrigue and filters for follow-through.',
+        'The demo page itself names them among the chosen. That\'s intentional. They\'ll feel it.',
+      ],
+    },
+    {
+      id: 'warm_intro',
+      icon: Phone,
+      color: '#a78bfa',
+      title: 'Get a Warm Introduction',
+      subtitle: 'Cold messages get read. Warm intros get meetings.',
+      steps: [
+        'For Elon: route through David Sacks (DOGE AI czar) or any Neuralink/SpaceX-adjacent contact.',
+        'For Peter Thiel: reach via Founders Fund LP network or a Palantir connection.',
+        'For a16z: submit to their American Dynamism portfolio page — they actively look for this.',
+        'For MrBeast: Reed Duchscher (manager) is the gatekeeper. One well-placed intro beats 100 cold DMs.',
+        'For Trump / White House: route through DOGE or a congressional office. Ezra Cohen-Watnick, Brendan Carr.',
+      ],
+    },
+    {
+      id: 'viral_hook',
+      icon: Twitter,
+      color: '#F59E0B',
+      title: 'Create a Viral Hook Moment',
+      subtitle: 'Make them come to you.',
+      steps: [
+        'Post a 60-second video: "What if instead of $64,000/person on shelters, we spent $3,840 and they left with a job, savings, and a skill?" — no branding, just data.',
+        'Tag the right people without asking for anything. Curiosity drives clicks.',
+        'Get the landing page link in comments before the post goes viral — not after.',
+        'If MrBeast reposts anything related, the entire coalition conversation accelerates.',
+        'X/Twitter thread with the cost comparison data tends to get picked up by tech press without prompting.',
+      ],
+    },
+    {
+      id: 'conference',
+      icon: Send,
+      color: '#22C55E',
+      title: 'Appear Where They Are',
+      subtitle: 'Physical presence still beats digital reach.',
+      steps: [
+        'Davos, TED, SXSW, and the All-In Summit are where all of these people converge.',
+        'Prepare a 3-minute verbal pitch: "I\'m building a crypto-incentivized city for homeless Americans. $320/month. 94% employment rate. Needs your name on it."',
+        'Have the demo link in your phone. Airpod out, phone out, demo playing before they finish saying hello.',
+        'For government contacts: request a meeting through their public scheduling office with subject line: "DOGE-Aligned Homelessness Solution — Request for 15 Minutes."',
+        'For investors: YC Demo Day alumni network, a16z office hours, and Sequoia scout network are all accessible.',
+      ],
+    },
+  ];
+
+  return (
+    <div className="glass rounded-3xl p-6 md:p-10 border border-border/50">
+      <div className="mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black tracking-widest mb-3">
+          📡 OUTREACH PLAYBOOK
+        </div>
+        <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-2">
+          HOW TO MAKE SURE THEY <span className="text-gradient-blue">ALL SEE THIS.</span>
+        </h2>
+        <p className="text-muted-foreground max-w-2xl leading-relaxed">
+          The demo exists. The pitch is built. The only question is delivery. Here are four vectors — use all of them in parallel.
+          <strong className="text-foreground"> Not because we're playing games. Because 653,100 people are depending on us getting this right.</strong>
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        {strategies.map((s, i) => {
+          const isOpen = open === s.id;
+          return (
+            <motion.div key={s.id}
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }}
+              className="glass rounded-2xl border border-border/40 overflow-hidden">
+              <button className="w-full flex items-center gap-4 px-5 py-4 text-left"
+                onClick={() => setOpen(isOpen ? null : s.id)}>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${s.color}20`, border: `1px solid ${s.color}40` }}>
+                  <s.icon className="w-4 h-4" style={{ color: s.color }} />
+                </div>
+                <div className="flex-1">
+                  <div className="font-display font-bold text-lg text-foreground">{s.title}</div>
+                  <div className="text-xs text-muted-foreground">{s.subtitle}</div>
+                </div>
+                {isOpen ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+              </button>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden">
+                    <div className="px-5 pb-5 border-t border-border/30 pt-4">
+                      <ol className="space-y-3">
+                        {s.steps.map((step, j) => (
+                          <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
+                            <span className="font-display font-black text-sm flex-shrink-0 mt-0.5" style={{ color: s.color }}>{j + 1}.</span>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
