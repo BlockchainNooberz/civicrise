@@ -7,6 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, L
 import { Link } from 'react-router-dom';
 import TierBadge from '@/components/ui/TierBadge';
 import NACCounter from '@/components/ui/NACCounter';
+import NACEconomicChart from '@/components/admin/NACEconomicChart';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload?.length) {
@@ -188,6 +189,9 @@ export default function AdminDashboard() {
           ))}
         </div>
       </div>
+
+      {/* NAC Economic Impact Chart */}
+      <NACEconomicChart residents={residents} transactions={transactions} />
 
       {/* National Impact Calculator */}
       <ImpactCalculator />
