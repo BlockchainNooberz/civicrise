@@ -47,6 +47,17 @@ const PARTNERS = [
       { headline: 'Predictive Reintegration', body: 'Gotham flags residents approaching Citizen-Ready before staff even notice. Proactive intervention. Better outcomes. Fewer re-entries.' },
       { headline: 'Proof of Concept for DHS', body: 'This is the domestic AI welfare OS that every federal agency will want to license. Palantir gets first-mover positioning on a $40B TAM.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Direct Email', handle: 'karp@palantir.com (exec team)', note: 'Formal RFP framing. Subject: "Data Infrastructure RFP — Project Renaissance Phase 1."' },
+        { label: '🤝 Warm Intro', handle: 'Via Founders Fund / Peter Thiel', note: 'Thiel is a Palantir co-founder. A Thiel intro to Karp is a guaranteed read.' },
+        { label: '💼 LinkedIn', handle: 'Alex Karp — CEO Palantir', note: 'Short note: "Building the largest social OS in history. Need Palantir. 10 minutes?"' },
+      ],
+      templates: [
+        { id: 'palantir-dm', label: '💬 Short Pitch', text: `Alex — I'm building a crypto-incentivized reintegration city on Vieques Island for 650,000 Americans. We need Palantir as our operating system. Real-time behavioral scoring, reintegration prediction, the works. This is Gotham and Foundry's defining deployment. Can I get 20 minutes? Demo: [YOUR_DEMO_LINK]` },
+        { id: 'palantir-email', label: '📧 Email Template', text: `Subject: Project Renaissance — Data Infrastructure RFP (Palantir-Exclusive)\n\nAlex,\n\nProject Renaissance is a privately operated reintegration city on Vieques Island — 136 residents today, scaling to 650,000. We need a real-time behavioral data OS, predictive reintegration modeling, and a unified resident graph across 50+ facilities.\n\nThere is one platform on Earth equipped to run this. You know who it is.\n\nI'd like to get your team on a call. The RFP is ready. The timeline is Q3 2026.\n\nHere's the demo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'anduril',
@@ -74,6 +85,17 @@ const PARTNERS = [
       { headline: 'Zero Guard Bloat', body: 'Replacing 2,400 human security positions with autonomous systems reduces operational cost by 71% while improving response time by 8x.' },
       { headline: 'DoD Proof of Concept', body: 'The largest domestic autonomous security deployment ever. DoD and DHS licensing potential: $15B+ over a decade.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Direct Email', handle: 'palmer@anduril.com', note: 'Palmer personally reviews defense proposals. Keep it direct and technical.' },
+        { label: '🐦 X / Twitter', handle: '@PalmerLuckey', note: 'Very active. Quote a relevant tweet of his about autonomous systems + island perimeter angle.' },
+        { label: '🤝 Warm Intro', handle: 'Via a16z or Founders Fund', note: 'Both are Anduril investors. A portfolio company intro fast-tracks the conversation.' },
+      ],
+      templates: [
+        { id: 'anduril-dm', label: '💬 X DM', text: `Palmer — we're building a reintegration city on Vieques Island. Ocean perimeter. No land wall. Perfect Anduril deployment. Ghost-4 patrols, Lattice AI, sentry towers at every coastal entry. Largest domestic autonomous security deployment ever. 20 minutes? [YOUR_DEMO_LINK]` },
+        { id: 'anduril-email', label: '📧 Email Template', text: `Subject: Vieques Island — Autonomous Perimeter Security Contract\n\nPalmer,\n\nProject Renaissance is a sovereign reintegration facility on Vieques Island, Puerto Rico. US federal territory. 135 km². Ocean border. No land perimeter needed.\n\nWe need Anduril to own the coastline. Ghost-4 autonomous patrol fleet. Lattice AI threat monitoring. Sentry towers at all coastal entry points. 24/7. No human guard force.\n\nThis is Anduril's largest domestic deployment. It proves the technology at civilian scale and opens a $15B DoD/DHS licensing pathway.\n\nDemo here: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'elon',
@@ -101,6 +123,17 @@ const PARTNERS = [
       { headline: 'Grok as Life Coach', body: 'Every resident gets a personalized xAI Grok tutor available 24/7 — adapting to their learning pace, mental state, and certification track. The first population-scale AI behavioral coach.' },
       { headline: 'Optimus City', body: '500 Tesla Optimus robots handle maintenance, logistics, and agriculture across the island. The largest real-world Optimus deployment on Earth.' },
     ],
+    outreach: {
+      channels: [
+        { label: '🐦 X / Twitter', handle: '@elonmusk', note: 'Elon reads everything on X. Tag with data. Short. Provocative. No ask in the first message.' },
+        { label: '🤝 DOGE Pathway', handle: 'David Sacks / Vivek Ramaswamy', note: 'Route through the DOGE AI czar. This is a DOGE-aligned initiative — use that framing.' },
+        { label: '📧 xAI / Tesla BD', handle: 'business@x.ai / bd@tesla.com', note: 'Submit formal multi-entity partnership proposal to all three BD teams simultaneously.' },
+      ],
+      templates: [
+        { id: 'elon-dm', label: '💬 X Post / DM', text: `@elonmusk — Vieques Island. US-controlled. 135 km². Ocean perimeter. Tesla Megapacks for energy independence. Starlink for every resident Day 1. Grok as the AI tutor. Optimus for infrastructure. 650,000 Americans earning crypto and learning AI skills instead of living in shelters at $64K/person/year. This is DOGE's greatest domestic win. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'elon-email', label: '📧 Multi-Entity Pitch', text: `Subject: Tesla + Starlink + xAI + Optimus — Project Renaissance\n\nElon,\n\nProject Renaissance is a sovereign island reintegration city — Vieques, Puerto Rico. US federal land. We're building the full Tesla stack:\n\n• Tesla Megapack + Solar: 100% energy independence\n• Starlink: broadband for every resident from Day 1\n• xAI Grok: personalized tutor for 650,000 learners\n• Optimus: 500 robots running island infrastructure\n\nThis is the largest integrated Tesla product deployment on Earth. DOGE alignment. $50B+ product deployment value. The story writes itself.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'mrbeast',
@@ -128,6 +161,17 @@ const PARTNERS = [
       { headline: 'Cultural Legitimacy', body: 'One MrBeast post about Vieques drives more voluntary intake than $50M in government advertising. The brand is the unlock.' },
       { headline: '$2B Content Empire', body: 'YouTube + Netflix licensing over 5 years. Quarterly graduation specials. A franchise that funds itself — and funds the housing fund simultaneously.' },
     ],
+    outreach: {
+      channels: [
+        { label: '🐦 X / Twitter DM', handle: '@MrBeast', note: 'High read rate. Keep it 3 sentences + demo link. No ask in the first message.' },
+        { label: '📧 Beast Industries', handle: 'Via Reed Duchscher (Manager)', note: 'Reed is the gatekeeper. One well-placed intro to Reed beats 100 cold DMs to Jimmy.' },
+        { label: '▶️ YouTube Business', handle: 'mrbeast.com/contact', note: 'Official business inquiry — routes to management. Use for formal partnership framing.' },
+      ],
+      templates: [
+        { id: 'mrbeast-dm', label: '💬 X DM / Short Message', text: `Hey Jimmy — I'm building something I think you'll genuinely love. Project Renaissance: a crypto-incentivized reintegration city on a real island for 650,000 homeless Americans. They earn real coin, learn AI & trade skills, and graduate into jobs. I need your brain on the content side — this is the most compelling human transformation story ever filmed. Can I get 20 minutes? Demo: [YOUR_DEMO_LINK]` },
+        { id: 'mrbeast-email', label: '📧 Email Template', text: `Subject: The most watched redemption arc in human history — and I need you to make it real\n\nJimmy,\n\nI'll keep it short because I know you value that.\n\nProject Renaissance: a privately operated, crypto-powered reintegration city on Vieques Island where 650,000 Americans earn digital currency, learn AI skills, and graduate into real jobs. The outcomes data is wild. The content potential is historic.\n\nReal people. Real island. Real stakes. No script. This is the greatest human transformation story ever filmed — and it runs 365 days a year.\n\n20 minutes. That's all I'm asking. Here's the demo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'thiel',
@@ -155,6 +199,17 @@ const PARTNERS = [
       { headline: 'NAC: Behavioral Capital', body: 'A new asset class. Cryptographic reputation currency backed by measurable human progress. Thiel has been waiting for this use case for 15 years.' },
       { headline: '$80B Exit Thesis', body: 'Replicate to 20 countries. License the model to 50 US cities. Government acquisition of the infrastructure layer. Multiple exit vectors, all enormous.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Founders Fund', handle: 'info@foundersfund.com', note: 'Submit a formal investment memo. Thiel\'s team reviews every submission personally.' },
+        { label: '🤝 Palantir Connection', handle: 'Via Alex Karp or early Palantir team', note: 'Thiel co-founded Palantir. Any early Palantir employee is a direct warm intro path.' },
+        { label: '📚 Libertarian Circle', handle: 'Via Seasteading Institute or CATO', note: 'Thiel is embedded in libertarian intellectual circles. A philosopher-investor intro works.' },
+      ],
+      templates: [
+        { id: 'thiel-dm', label: '💬 Short Pitch', text: `Peter — Zero to one. Private social OS. Crypto behavioral currency. No government. No bureaucracy. Island city off Puerto Rico. 650,000 Americans. Series A open. This is what you've been waiting for. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'thiel-email', label: '📧 Investment Memo Cover', text: `Subject: Zero to One — The Private Welfare OS\n\nPeter,\n\nThe attached is an investment memo for Project Renaissance — the first privately operated, crypto-incentivized reintegration city in American history.\n\nKey thesis:\n• No comparable model exists. This is zero-to-one.\n• NAC behavioral currency = new asset class.\n• 8% equity at ground floor of what becomes a $80B+ global platform.\n• Government can never outcompete it — they'll eventually acquire it.\n\nVieques Island. 136 residents today. 650,000 at scale.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'trump',
@@ -182,6 +237,17 @@ const PARTNERS = [
       { headline: '$40B Annual Savings', body: 'DOGE loves this. Replace 12 federal agencies with one island-based operating system. The math is undeniable.' },
       { headline: 'Trump Renaissance Island', body: 'The naming rights alone are worth it. Every graduate who gets a job and a life becomes a permanent piece of this administration\'s legacy.' },
     ],
+    outreach: {
+      channels: [
+        { label: '🏛️ DOGE Office', handle: 'Via David Sacks / Elon Musk', note: 'DOGE is the fastest pathway. Frame as "$40B annual savings + eliminates 12 agencies."' },
+        { label: '📋 Congressional', handle: 'Scheduling via WH.gov', note: 'Submit to the Office of Domestic Policy. Subject line must include "DOGE-aligned savings."' },
+        { label: '🤝 Mar-a-Lago Network', handle: 'Via Trump Organization contacts', note: 'A trusted intermediary in the Trump orbit beats any formal channel.' },
+      ],
+      templates: [
+        { id: 'trump-dm', label: '💬 Executive Summary', text: `Project Renaissance — DOGE-Aligned Domestic Policy Win\n\n• Vieques Island reactivated as sovereign reintegration city\n• Replaces 12 federal homelessness agencies\n• Saves $40B/year vs. current spending\n• 650,000 Americans earning crypto, learning AI, graduating into jobs\n• "Trump Renaissance Island" — naming rights for flagship facility\n\nDemo: [YOUR_DEMO_LINK]` },
+        { id: 'trump-email', label: '📧 Policy Brief', text: `Subject: DOGE-Aligned Homelessness Solution — Saves $40B/Year\n\nTo the Office of Domestic Policy,\n\nProject Renaissance is a privately operated reintegration facility on Vieques Island — formerly US Navy land, zero acquisition cost.\n\nKey policy wins:\n• Eliminates 12 redundant federal agencies\n• $40B+ annual taxpayer savings\n• 650,000 Americans in structured reintegration programs\n• Zero constitutional concerns — fully voluntary for homeless populations\n• "Trump Renaissance Island" naming opportunity for flagship facility\n\nRequests: Executive Order for Vieques reactivation + $5B initial federal allocation.\n\nBriefing available at request. Demo: [YOUR_DEMO_LINK]` },
+      ],
+    },
   },
   {
     id: 'blackrock',
@@ -209,6 +275,17 @@ const PARTNERS = [
       { headline: 'The Renaissance REIT', body: '$25B infrastructure buildout. BlackRock manages it. Government-backed. ESG-certified. First-mover positioning in a new institutional asset class.' },
       { headline: 'Global Replication', body: '50 countries have homelessness crises. BlackRock licenses the model, manages the fund, collects fees. The TAM is virtually unlimited.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 BlackRock Direct', handle: 'larry.fink@blackrock.com', note: 'Fink reads investment memos personally. Lead with the REIT structure and ESG metrics.' },
+        { label: '🏦 Institutional Relations', handle: 'BlackRock Alternatives team', note: 'Submit the REIT structure through BlackRock Alternatives — they manage infrastructure funds.' },
+        { label: '🤝 Sovereign Wealth', handle: 'Via PIF, GIC, or ADIA contacts', note: 'Fink\'s sovereign wealth relationships are his fastest intro path for new fund structures.' },
+      ],
+      templates: [
+        { id: 'fink-dm', label: '💬 Short Pitch', text: `Larry — You've spent a decade demanding that companies demonstrate purpose alongside profit. Project Renaissance is the first investment vehicle where purpose IS the profit mechanism. $25B REIT. Government-backed. ESG metrics measured in human lives. BlackRock should manage it. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'fink-email', label: '📧 REIT Proposal', text: `Subject: Renaissance Infrastructure REIT — ESG at Unprecedented Scale\n\nLarry,\n\nFor a decade you've said purpose and profit must coexist. We've built the instrument that proves it.\n\nProject Renaissance Infrastructure REIT:\n• $25B buildout of Vieques Island reintegration city + 50 national facilities\n• BlackRock as exclusive fund manager\n• Government-adjacent revenue = investment-grade bond rating Day 1\n• ESG metrics: every dollar traceable to a human life transformed\n• Global replication: 50 countries × $500M per facility\n\nThis is the fund that defines BlackRock's next decade.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'jpmorgan',
@@ -236,6 +313,17 @@ const PARTNERS = [
       { headline: 'NAC Settlement Rails', body: 'JPMorgan Coin becomes the settlement layer for NAC. Every transaction, every graduation payout, every resident withdrawal runs through JPMorgan infrastructure.' },
       { headline: '$25B Project Finance', body: '50 facilities nationwide. Each one a JPMorgan-financed project. Fee income that rivals their biggest infrastructure deals ever.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 JPMorgan Corporate BD', handle: 'Via JPMorgan Business Development', note: 'Submit through their corporate social responsibility and community development arms.' },
+        { label: '🏦 Advancing Cities', handle: 'advancingcities@jpmorgan.com', note: 'Their flagship ESG initiative. This fits perfectly as their largest-ever project.' },
+        { label: '🤝 Warm Intro', handle: 'Via Goldman Sachs or Blackstone contacts', note: 'Dimon responds to peer-level intros. A Schwarzman or Dalio intro is the fastest path.' },
+      ],
+      templates: [
+        { id: 'dimon-dm', label: '💬 Executive Summary', text: `Jamie — Project Renaissance is the largest CRA-qualifying community development opportunity in American banking history. $2B loan. $25B project finance. NAC-to-USD conversion rails for 50,000 graduates/year. JPMorgan Coin as the settlement layer. This is Advancing Cities at a scale nobody has ever attempted. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'dimon-email', label: '📧 Banking Partnership Proposal', text: `Subject: Project Renaissance — CRA + Project Finance + Digital Assets\n\nJamie,\n\nProject Renaissance is a sovereign reintegration city on Vieques Island. We need a banking partner who can operate at three layers simultaneously:\n\n1. CRA: $2B community development loan — maximum regulatory credit\n2. Project Finance: $25B buildout across 50 facilities\n3. Digital Assets: NAC-to-USD conversion rails + JPMorgan Coin settlement\n\nThis is JPMorgan's Advancing Cities program at a scale it has never operated before.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'wlfi',
@@ -263,6 +351,17 @@ const PARTNERS = [
       { headline: 'Validator Income Machine', body: '650,000 residents transacting daily. At 0.5% fee on every transaction, WLFI earns $100M+ annually just from being the founding validator.' },
       { headline: 'The Anti-Social-Credit', body: 'China has social credit. America has NAC — voluntary, transparent, owned by the individual. WLFI and Renaissance co-brand this distinction globally.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 WLFI Team', handle: 'info@worldlibertyfi.com', note: 'Submit the NAC validator architecture proposal directly to their protocol team.' },
+        { label: '🐦 X / Twitter', handle: '@worldlibertyfi', note: 'Active on X. Tag with the behavioral currency angle and American sovereignty framing.' },
+        { label: '🤝 Trump Family Network', handle: 'Via Eric Trump / Donald Trump Jr.', note: 'WLFI is Trump family adjacent. A direct family-level intro is the fastest pathway.' },
+      ],
+      templates: [
+        { id: 'wlfi-dm', label: '💬 Short Pitch', text: `WLFI — We're launching NAC (New America Coin) — the first behavioral cryptocurrency backed by American sovereignty. 650,000 residents earning and spending on-chain. We need WLFI as founding validator. $100M+ annual fee income at scale. This is the American answer to China's social credit system. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'wlfi-email', label: '📧 Protocol Partnership', text: `Subject: NAC Founding Validator Rights — New America Coin\n\nTo the WLFI Team,\n\nProject Renaissance is launching NAC — New America Coin — the first behavioral cryptocurrency backed by US sovereign infrastructure on Vieques Island.\n\nWe're offering WLFI founding validator rights:\n• Transaction fee income on 650,000 active users\n• NAC tradeable on WLFI exchange from Day 1\n• Co-brand: "Powered by World Liberty Financial"\n• America's answer to Chinese social credit — but transparent and freedom-first\n\nToken architecture audit begins Q2 2026.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'andreessen',
@@ -290,6 +389,17 @@ const PARTNERS = [
       { headline: 'NAC Tokenomics by a16z', body: 'The crypto arm architects the NAC behavioral currency. First-of-kind. Every future behavioral token will cite this as the founding reference.' },
       { headline: '$100B IPO Thesis', body: 'Social OS licensed to 50 US cities. 20 countries. Government acquisition as an exit. Multiple paths to a $100B+ valuation.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📝 American Dynamism', handle: 'a16z.com/american-dynamism', note: 'Submit directly to the American Dynamism portfolio page — they actively source deals.' },
+        { label: '🐦 X / Twitter', handle: '@pmarca / @bhorowitz', note: 'Both very active. Marc responds to American Dynamism pitches publicly and in DMs.' },
+        { label: '🤝 Portfolio Company', handle: 'Via Anduril, Palantir, or Coinbase', note: 'a16z is an investor in all three. A portfolio company intro is the gold standard.' },
+      ],
+      templates: [
+        { id: 'a16z-dm', label: '💬 Short Pitch', text: `Marc — Software is eating homelessness. Project Renaissance: crypto-incentivized island city. NAC behavioral currency. AI tutors. Autonomous security. This is the American Dynamism investment. Series B. 6% equity. Term sheet open. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'a16z-email', label: '📧 Investment Memo', text: `Subject: American Dynamism — Series B — Project Renaissance\n\nMarc / Ben,\n\nProject Renaissance is the defining American Dynamism investment:\n\n• Crypto: NAC behavioral currency — a16z crypto architects the tokenomics\n• AI: Grok + Palantir + NVIDIA powering 650,000 residents\n• Defense: Anduril autonomous perimeter on Vieques Island\n• Infrastructure: $25B buildout, government-adjacent revenue\n\nSeries B. $400M. 6% equity. $100B+ IPO thesis.\n\nThis is what "software eating the world" looks like when the world is 650,000 lives.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'nvidia',
@@ -317,6 +427,17 @@ const PARTNERS = [
       { headline: 'NIM Microservices at Scale', body: 'NVIDIA NIM powers the AI tutor stack for 650,000 concurrent learners. The largest NIM deployment in history. Jensen gets the case study of a decade.' },
       { headline: 'The Humanitarian GPU', body: 'NVIDIA\'s marketing writes itself: "The GPU that rebuilt 650,000 lives." Board-level ESG narrative with $1.5B in hard contract value behind it.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 NVIDIA Enterprise', handle: 'enterprise@nvidia.com', note: 'Submit DGX Cloud + NIM partnership proposal to their enterprise AI team.' },
+        { label: '🤝 NVIDIA Inception', handle: 'developer.nvidia.com/inception', note: 'Apply as an Inception member — direct pipeline to Jensen\'s team for large deployments.' },
+        { label: '🐦 X / Twitter', handle: '@nvidia / @jenhsunhuang', note: 'Jensen is active. Tag with the humanitarian AI deployment angle — he loves this narrative.' },
+      ],
+      templates: [
+        { id: 'nvidia-dm', label: '💬 Short Pitch', text: `Jensen — 650,000 residents. Real-time behavioral scoring. AI tutors for every person, 24/7. We need a dedicated H100/B200 cluster on Vieques Island. This is the largest humanitarian AI deployment in history. NVIDIA gets "the GPU that rebuilt 650,000 lives." $1.5B contract. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'nvidia-email', label: '📧 Compute Partnership', text: `Subject: DGX Cloud + NIM — Largest Humanitarian AI Deployment in History\n\nJensen,\n\nProject Renaissance needs compute at a scale we've never seen in the humanitarian sector.\n\n• Dedicated on-island H100/B200 cluster for Vieques\n• NVIDIA NIM for 650,000 concurrent AI tutoring sessions\n• DGX Cloud for all behavioral analytics workloads\n• Real-time NAC behavioral scoring at population scale\n\nThis is NVIDIA's largest single humanitarian deployment. Multi-year contract: $1.5B. The story: "The GPU that rebuilt 650,000 lives."\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'bezos',
@@ -344,6 +465,17 @@ const PARTNERS = [
       { headline: 'The Island Agriculture Ring', body: 'Bezos Earth Fund invests $200M in Vieques hydroponic and ocean-farm infrastructure. Food sovereignty for 650,000 people. Measurable carbon offset data for the Foundation.' },
       { headline: '25,000 Jobs a Year', body: 'Amazon becomes the single largest employer of Renaissance graduates. A direct pipeline from the island to warehouses, tech roles, and logistics positions nationwide.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 AWS Public Sector', handle: 'awspublicsector@amazon.com', note: 'AWS has a dedicated public sector team. Submit the cloud infrastructure RFP here.' },
+        { label: '🌿 Bezos Earth Fund', handle: 'bezosfund.org/apply', note: 'Urban agriculture + food sovereignty is a perfect fit. Submit a grant/partnership proposal.' },
+        { label: '💼 Amazon Jobs BD', handle: 'Via Amazon Jobs & Amazon Business', note: 'The graduate employment pipeline pitch goes to Amazon\'s workforce development team.' },
+      ],
+      templates: [
+        { id: 'bezos-dm', label: '💬 Short Pitch', text: `Jeff — Day One thinking for America's oldest problem. AWS as the exclusive cloud for a sovereign island city. Bezos Earth Fund for the agriculture ring. 25,000 Amazon jobs for graduates per year. This is the largest integrated Amazon deployment in history. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'bezos-email', label: '📧 Multi-Arm Proposal', text: `Subject: Project Renaissance — AWS + Earth Fund + Amazon Jobs\n\nJeff,\n\nProject Renaissance is a sovereign reintegration city on Vieques Island. We're proposing a three-arm Amazon partnership:\n\n1. AWS: exclusive cloud for all 50 Renaissance facilities — $800M over 5 years\n2. Bezos Earth Fund: $200M island agriculture ring investment\n3. Amazon Jobs: 25,000 Renaissance graduates hired annually\n\nThis is Day One thinking applied to America's oldest problem.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'gates',
@@ -371,6 +503,17 @@ const PARTNERS = [
       { headline: 'Gates Health at Renaissance', body: 'Medical wing co-funded and co-branded. Mental health, addiction recovery, and physical wellness tracked longitudinally. The world\'s most complete social health dataset.' },
       { headline: 'Global Policy Impact', body: 'The Gates Foundation publishes the findings. 50 countries adopt the model. Vieques becomes the reference implementation for global homelessness policy reform.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Gates Foundation', handle: 'info@gatesfoundation.org', note: 'Submit a formal research partnership proposal. Lead with the longitudinal study angle.' },
+        { label: '🏛️ Annual Letter', handle: 'Via Gates Notes (gatenotes.com)', note: 'Bill publishes his annual letter in February. A pre-letter pitch plants the idea.' },
+        { label: '🤝 Global Health Network', handle: 'Via WHO / USAID contacts', note: 'Gates operates through global health networks. A WHO or USAID intro lands on his desk.' },
+      ],
+      templates: [
+        { id: 'gates-dm', label: '💬 Short Pitch', text: `Bill — The Gates Foundation has funded homelessness research for 20 years. Project Renaissance is the first time the study IS the intervention. 650,000 subjects. Fully instrumented. Longitudinal health outcomes tracked in real-time. This is your defining achievement. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'gates-email', label: '📧 Research Partnership Proposal', text: `Subject: Project Renaissance — Research Partnership Proposal\n\nBill,\n\nThe Gates Foundation has funded evidence-based social interventions for decades. Project Renaissance is the first intervention that is simultaneously a fully instrumented research study.\n\n• 650,000 subjects across health, education, and behavioral outcomes\n• "Gates Health at Renaissance" medical wing co-funded and co-branded\n• AI-driven health screening protocol with global deployment potential\n• Gates Digital Literacy Track endowment in every facility\n• Published findings reshape homelessness policy in 50+ countries\n\nThis is the Gates Foundation's defining achievement of the decade.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'walton',
@@ -398,6 +541,17 @@ const PARTNERS = [
       { headline: 'Life Skills by Walton', body: 'The Walton Foundation co-develops the Life Skills curriculum — financial literacy, budgeting, consumer math. Their brand on the most impactful education program in America.' },
       { headline: '$6B Supply Contract', body: '$1.2B/year in predictable, government-adjacent revenue. 5 years locked. More stable than any corporate customer Walmart has ever had.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Walmart Corporate BD', handle: 'Via Walmart Procurement / Bentonville HQ', note: 'Submit wholesale supply RFP to Walmart corporate procurement. Lead with volume.' },
+        { label: '🏫 Walton Foundation', handle: 'waltonfamilyfoundation.org/contact', note: 'Education curriculum partnership goes through the Foundation\'s K-12 education team.' },
+        { label: '🤝 Board-Level Intro', handle: 'Via Walmart board or Sam\'s Club leadership', note: 'The Walton family board members are accessible through business networks.' },
+      ],
+      templates: [
+        { id: 'walton-dm', label: '💬 Short Pitch', text: `Walton Family — One island. 650,000 residents. Single procurement address. $1.2B/year in wholesale revenue. More predictable than any corporate customer Walmart has ever had. The Walton Foundation co-brands the Life Skills curriculum. Sam's Club membership for every graduate. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'walton-email', label: '📧 Supply Partnership Proposal', text: `Subject: Walmart Supply Contract — Project Renaissance\n\nTo the Walmart Corporate Procurement Team,\n\nProject Renaissance is a sovereign reintegration city on Vieques Island with a central procurement need:\n\n• 650,000 residents\n• Single island address\n• $1.2B/year in food + goods\n• 5-year locked contract, government-adjacent\n\nThis is Walmart's most efficient wholesale account ever — and the Walton Foundation co-develops the Life Skills curriculum, putting the family brand on America's most impactful education program.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'openai',
@@ -425,6 +579,17 @@ const PARTNERS = [
       { headline: 'The Training Dataset', body: 'Behavioral fine-tuning data on 650,000 humans over years of transformation. The most valuable human behavioral dataset OpenAI has ever had access to.' },
       { headline: 'The Mission Statement Made Real', body: 'OpenAI publishes: "AI as a Social Mobility Tool." The academic impact alone reshapes global policy. The brand value is immeasurable.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 OpenAI Partnerships', handle: 'partnerships@openai.com', note: 'Submit a formal API partnership proposal. Lead with the humanitarian mission alignment.' },
+        { label: '🐦 X / Twitter', handle: '@sama', note: 'Sam Altman is very active. Tag with the AGI-for-humanity framing — it\'s his core message.' },
+        { label: '🤝 YC Network', handle: 'Via Y Combinator alumni', note: 'Altman ran YC. Any YC alumnus is a potential warm intro to his personal inbox.' },
+      ],
+      templates: [
+        { id: 'altman-dm', label: '💬 Short Pitch', text: `Sam — You said AGI should benefit all of humanity. Project Renaissance is where that statement becomes real. 650,000 people with a GPT-5 tutor, 24/7, adapting to their pace and goals. The behavioral transformation dataset alone is worth it. This is OpenAI's mission, operationalized. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'altman-email', label: '📧 Partnership Proposal', text: `Subject: AGI for Humanity — Project Renaissance\n\nSam,\n\nOpenAI's mission is to ensure AGI benefits all of humanity. Project Renaissance is the most direct path to that mission ever proposed.\n\n• GPT-5+ as personalized AI tutor for 650,000 concurrent learners\n• Behavioral fine-tuning dataset: years of human transformation data\n• Published research: "AI as a Social Mobility Tool"\n• OpenAI for Nonprofits flagship partnership\n\nNo other deployment touches this many people this directly.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'airbnb',
@@ -452,6 +617,17 @@ const PARTNERS = [
       { headline: '50K Verified Tenants a Year', body: 'Airbnb has never had a pipeline of pre-verified, creditworthy tenants delivered at scale. Renaissance graduates arrive with scores, savings, and certifications.' },
       { headline: 'The Belonging Brand Moment', body: '"Belong Anywhere" extended to people who had nowhere. The most powerful Airbnb ESG narrative in the company\'s history.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Airbnb Partnerships', handle: 'partnerships@airbnb.com', note: 'Submit the graduate host certification program proposal to their housing partnerships team.' },
+        { label: '🏠 Airbnb.org', handle: 'airbnb.org/contact', note: 'Airbnb.org handles social impact housing. The emergency housing credits angle goes here.' },
+        { label: '🤝 YC / Tech Network', handle: 'Chesky is well-connected in tech', note: 'Brian is close with Altman and the YC community. An OpenAI or a16z intro works.' },
+      ],
+      templates: [
+        { id: 'airbnb-dm', label: '💬 Short Pitch', text: `Brian — "Belong Anywhere" extended to people who had nowhere. Project Renaissance graduates arrive with verified employment, savings, and a behavior score. They're ideal Airbnb hosts and tenants. 50,000 per year. A pipeline nobody else can give you. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'airbnb-email', label: '📧 Housing Partnership', text: `Subject: Renaissance Graduate Host Program — Airbnb Partnership\n\nBrian,\n\nAirbnb pioneered the idea that belonging transcends ownership. Project Renaissance has 50,000 Citizen-Ready graduates per year who embody that idea — with verified employment, savings, and behavioral scores.\n\nWe're proposing:\n• "Renaissance Graduate" Airbnb host certification program\n• Corporate housing credits for graduates transitioning from Vieques\n• Airbnb.org emergency housing integration for alumni\n• Co-branded ESG report: "From Homeless to Host"\n\n"Belong Anywhere" — including after a second chance.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'dalio',
@@ -479,6 +655,17 @@ const PARTNERS = [
       { headline: 'Radical Transparency at Scale', body: 'Bridgewater\'s operating principles — transparency, accountability, measurable outcomes — are exactly how Renaissance works. Dalio\'s framework applied to 650,000 human lives.' },
       { headline: 'NAC as Macro Asset', body: 'A productivity-backed behavioral currency as an inflation hedge. Bridgewater architecting NAC\'s macro positioning could make it the most interesting new asset class in decades.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Bridgewater Associates', handle: 'info@bwater.com', note: 'Submit a formal investment thesis that mirrors Bridgewater\'s "Principles" framework.' },
+        { label: '📚 Dalio Foundation', handle: 'dalio.com/giving', note: 'Dalio funds initiatives targeting the "5 big problems." This fits all of them.' },
+        { label: '🤝 Macro Network', handle: 'Via sovereign wealth or macro fund contacts', note: 'Dalio operates in sovereign wealth circles. A PIF or GIC connection reaches him quickly.' },
+      ],
+      templates: [
+        { id: 'dalio-dm', label: '💬 Short Pitch', text: `Ray — You've written about the breakdown of the social fabric and the rise of internal conflict for years. Project Renaissance is the first empirical intervention that directly addresses the structural conditions you've identified. Equity stake. Radical transparency built in. NAC as a macro asset. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'dalio-email', label: '📧 Investment Thesis', text: `Subject: The Civilizational Hedge — Project Renaissance\n\nRay,\n\nYou've spent a decade writing about the structural preconditions for societal collapse: inequality, disenfranchisement, loss of economic agency.\n\nProject Renaissance is the first investment that directly hedges against those exact conditions:\n\n• 650,000 disenfranchised Americans reintegrated into economic agency\n• Radical transparency framework applied to resident progress data\n• NAC behavioral currency as a new macro asset class\n• Dalio Principles framework as the behavioral curriculum foundation\n\n4% equity. Anchor investor status.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'timcook',
@@ -506,6 +693,17 @@ const PARTNERS = [
       { headline: 'Health Data as Behavioral Score', body: 'Apple Watch biometric data — sleep, activity, stress — feeds the NAC behavioral engine. The most human-centered data layer in any social program ever.' },
       { headline: 'Apple Pay = NAC Wallet', body: 'Residents spend NAC through Apple Pay. Simple. Trusted. Familiar. The onramp to financial inclusion built on infrastructure 1 billion people already know.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Apple EDU', handle: 'edu@apple.com', note: 'Submit the Apple Classroom + iPad deployment partnership to Apple\'s education team.' },
+        { label: '🏥 Apple Health', handle: 'Via Apple Health Research team', note: 'The Apple Watch biometric data angle goes through Apple\'s health research partnerships.' },
+        { label: '🤝 Tim Cook Network', handle: 'Via Apple board or tech CEO circle', note: 'Cook is known for ESG commitment. A peer-level CEO intro from Gates or Bezos is ideal.' },
+      ],
+      templates: [
+        { id: 'cook-dm', label: '💬 Short Pitch', text: `Tim — Every resident on Vieques Island gets an iPad and Apple Watch on Day 1. Apple Classroom for every course. Apple Watch biometrics feeding the behavioral score engine. Apple Pay as the NAC wallet. This is Apple's largest humanitarian tech deployment — and the strongest ESG narrative the company has ever had. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'cook-email', label: '📧 Education + Health Partnership', text: `Subject: Apple Education + Health — Project Renaissance\n\nTim,\n\nProject Renaissance is proposing a three-layer Apple partnership:\n\n1. Education: iPad + Apple Classroom for all 650,000 residents\n2. Health: Apple Watch biometrics feeding the resident wellness engine\n3. Payments: Apple Pay as the NAC cryptocurrency wallet interface\n\nEvery resident issued an iPad and Apple Watch on intake day. Digital equity at population scale.\n\nThis is "Technology that empowers every human" — including the ones everyone else forgot.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'schwarzman',
@@ -533,6 +731,17 @@ const PARTNERS = [
       { headline: 'BREIT Integration', body: 'Blackstone Real Estate Income Trust gets a new flagship asset. Retail investors participate in the development of America\'s most audacious humanitarian infrastructure project.' },
       { headline: 'Government Buyout Floor', body: 'At any point, the federal government can buy out the infrastructure at cost-plus. Blackstone has a guaranteed floor and a sky-high ceiling.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Blackstone Real Estate', handle: 'Via Blackstone RE Business Development', note: 'Submit the Vieques development rights package to Blackstone\'s real estate acquisitions team.' },
+        { label: '🏛️ Milken Institute', handle: 'Annual Global Conference (May)', note: 'Schwarzman attends Milken every year. The single best in-person opportunity.' },
+        { label: '🤝 PE Network', handle: 'Via KKR or Apollo contacts', note: 'Schwarzman\'s peer network. A fellow mega-PE CEO intro is the fastest pathway.' },
+      ],
+      templates: [
+        { id: 'schwarzman-dm', label: '💬 Short Pitch', text: `Steve — 22,000 acres of US federal land on Vieques Island. Zero acquisition cost. Guaranteed government-adjacent revenue from Day 1. Blackstone develops it, manages it, earns fees for 20 years. BREIT integration. Government buyout floor at 2x cost. This is the greatest real estate development opportunity in American history. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'schwarzman-email', label: '📧 Development Rights Proposal', text: `Subject: Vieques Island — 22,000 Acres, Zero Acquisition Cost\n\nSteve,\n\nYou built Blackstone by seeing opportunities others couldn't. Vieques Island is exactly that:\n\n• 22,000 acres of US federal land — zero acquisition cost\n• Former US Navy infrastructure — already partially built out\n• Government-adjacent revenue from Day 1 — investment-grade risk profile\n• $15B development opportunity under Blackstone management\n• BREIT integration + government buyout option at cost-plus\n\nThis is the greatest single real estate development opportunity in American history.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
   {
     id: 'hastings',
@@ -560,6 +769,17 @@ const PARTNERS = [
       { headline: '15M New Subscribers', body: 'The launch campaign alone drives an estimated 15 million new Netflix subscriptions globally. No other content investment in 2026 comes close.' },
       { headline: 'A Franchise Forever', body: 'Year 1. Year 2. Year 5. Individual resident journey arcs. Graduation specials. The content never ends because the mission never ends.' },
     ],
+    outreach: {
+      channels: [
+        { label: '📧 Netflix Content', handle: 'Via Netflix Content Acquisitions', note: 'Submit a first-look deal proposal to Netflix Originals / Documentary Films team.' },
+        { label: '🎬 Ted Sarandos', handle: 'Netflix Co-CEO', note: 'Sarandos is the content decision-maker. A CAA or WME agent intro reaches him fastest.' },
+        { label: '🤝 CAA / WME', handle: 'Creative Artists Agency', note: 'The major talent agencies rep Netflix relationships. One agent call opens the door.' },
+      ],
+      templates: [
+        { id: 'netflix-dm', label: '💬 Short Pitch', text: `Reed — True crime. Social experiment. Human transformation. All three — at a scale no studio could manufacture. Project Renaissance on Vieques Island. Real people. Real stakes. 365 days a year. The greatest documentary franchise Netflix never knew it needed. First-look deal available. Demo: [YOUR_DEMO_LINK]` },
+        { id: 'netflix-email', label: '📧 Content Pitch', text: `Subject: The Greatest Documentary Franchise Netflix Never Knew It Needed\n\nReed,\n\nProject Renaissance on Vieques Island:\n\n• Real people. Real stakes. No script. No casting.\n• 650,000 humans earning crypto and becoming citizens — filmed in full\n• Quarterly "Citizen Graduation" specials with global simulcast\n• Individual resident journey arc series — Netflix Originals format\n• Estimated 15M new subscribers from launch campaign alone\n\nThis is The Circle meets Making a Murderer meets the most important domestic policy story of the decade.\n\nFirst-look deal available. $300M licensing.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+      ],
+    },
   },
 ];
 
@@ -612,50 +832,109 @@ const totalAsk = PARTNERS.reduce((sum, p) => {
   return sum + (match[2] === 'B' ? val * 1000 : val);
 }, 0);
 
+function OutreachTab({ partner }) {
+  const [copied, setCopied] = useState(null);
+  const color = partner.color;
+  const o = partner.outreach;
+
+  const copy = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  return (
+    <div className="p-5 space-y-5">
+      {/* Channels */}
+      <div className="grid sm:grid-cols-3 gap-3">
+        {o.channels.map(c => (
+          <div key={c.label} className="glass rounded-xl p-3 border border-border/40">
+            <div className="font-display font-bold text-sm mb-0.5" style={{ color }}>{c.label}</div>
+            <div className="text-xs font-mono text-muted-foreground mb-1">{c.handle}</div>
+            <div className="text-xs text-muted-foreground leading-relaxed">{c.note}</div>
+          </div>
+        ))}
+      </div>
+      {/* Templates */}
+      <div className="space-y-3">
+        <div className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color }}>Copy-Ready Templates</div>
+        {o.templates.map(t => (
+          <div key={t.id} className="glass rounded-xl border border-border/50 overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-2 border-b border-border/30">
+              <span className="text-xs font-bold text-muted-foreground">{t.label}</span>
+              <button onClick={() => copy(t.text, t.id)}
+                className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-full border border-border/50 hover:border-yellow-400/40 transition-colors text-muted-foreground hover:text-yellow-400">
+                {copied === t.id ? <CheckCheck className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                {copied === t.id ? 'Copied!' : 'Copy'}
+              </button>
+            </div>
+            <pre className="text-xs text-muted-foreground p-4 whitespace-pre-wrap leading-relaxed font-body">{t.text}</pre>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function PartnerCarousel({ partner }) {
+  const [tab, setTab] = useState('pitch');
   const [idx, setIdx] = useState(0);
   const slides = partner.carousel;
   const color = partner.color;
 
   return (
     <div className="rounded-2xl border overflow-hidden" style={{ borderColor: `${color}30` }}>
-      <div className="flex items-center justify-between px-4 py-2 border-b" style={{ borderColor: `${color}20`, background: `${color}08` }}>
-        <div className="text-xs font-bold tracking-widest uppercase" style={{ color }}>Strategic Value Propositions</div>
-        <div className="flex items-center gap-2">
-          {slides.map((_, i) => (
-            <button key={i} onClick={() => setIdx(i)}
-              className="w-1.5 h-1.5 rounded-full transition-all"
-              style={{ background: i === idx ? color : 'rgba(255,255,255,0.2)' }} />
-          ))}
-        </div>
+      {/* Tab bar */}
+      <div className="flex border-b" style={{ borderColor: `${color}20`, background: `${color}08` }}>
+        <button onClick={() => setTab('pitch')}
+          className="flex-1 text-xs font-bold tracking-widest uppercase px-4 py-2.5 transition-colors"
+          style={{ color: tab === 'pitch' ? color : '#94a3b8', borderBottom: tab === 'pitch' ? `2px solid ${color}` : '2px solid transparent' }}>
+          Value Props
+        </button>
+        <button onClick={() => setTab('outreach')}
+          className="flex-1 text-xs font-bold tracking-widest uppercase px-4 py-2.5 transition-colors"
+          style={{ color: tab === 'outreach' ? color : '#94a3b8', borderBottom: tab === 'outreach' ? `2px solid ${color}` : '2px solid transparent' }}>
+          📡 Outreach
+        </button>
       </div>
-      <div className="relative overflow-hidden" style={{ minHeight: 110 }}>
-        <AnimatePresence mode="wait">
-          <motion.div key={idx}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.25 }}
-            className="p-5"
-          >
-            <div className="font-display font-black text-lg mb-1.5" style={{ color }}>{slides[idx].headline}</div>
-            <p className="text-sm text-muted-foreground leading-relaxed">{slides[idx].body}</p>
+
+      <AnimatePresence mode="wait">
+        {tab === 'pitch' ? (
+          <motion.div key="pitch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+            <div className="relative overflow-hidden" style={{ minHeight: 110 }}>
+              <AnimatePresence mode="wait">
+                <motion.div key={idx}
+                  initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
+                  className="p-5">
+                  <div className="font-display font-black text-lg mb-1.5" style={{ color }}>{slides[idx].headline}</div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{slides[idx].body}</p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <div className="flex items-center justify-between px-4 py-2 border-t" style={{ borderColor: `${color}20` }}>
+              <button onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
+                className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
+                <ChevronLeft className="w-3 h-3" /> Prev
+              </button>
+              <div className="flex items-center gap-1.5">
+                {slides.map((_, i) => (
+                  <button key={i} onClick={() => setIdx(i)}
+                    className="w-1.5 h-1.5 rounded-full transition-all"
+                    style={{ background: i === idx ? color : 'rgba(255,255,255,0.2)' }} />
+                ))}
+              </div>
+              <button onClick={() => setIdx((idx + 1) % slides.length)}
+                className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
+                Next <ChevronRight className="w-3 h-3" />
+              </button>
+            </div>
           </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="flex items-center justify-between px-4 py-2 border-t" style={{ borderColor: `${color}20` }}>
-        <button onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
-          className="flex items-center gap-1 text-xs font-bold transition-colors"
-          style={{ color: `${color}80` }}>
-          <ChevronLeft className="w-3 h-3" /> Prev
-        </button>
-        <span className="text-xs text-muted-foreground">{idx + 1} / {slides.length}</span>
-        <button onClick={() => setIdx((idx + 1) % slides.length)}
-          className="flex items-center gap-1 text-xs font-bold transition-colors"
-          style={{ color: `${color}80` }}>
-          Next <ChevronRight className="w-3 h-3" />
-        </button>
-      </div>
+        ) : (
+          <motion.div key="outreach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+            <OutreachTab partner={partner} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
