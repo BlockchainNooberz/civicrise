@@ -1,0 +1,68 @@
+{
+  "name": "Camp",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Facility name"
+    },
+    "location": {
+      "type": "string",
+      "description": "City, State"
+    },
+    "capacity": {
+      "type": "number",
+      "description": "Max residents"
+    },
+    "current_occupancy": {
+      "type": "number",
+      "default": 0
+    },
+    "nac_reward_rate": {
+      "type": "number",
+      "description": "NAC per minute earned",
+      "default": 0.1
+    },
+    "reintegration_threshold": {
+      "type": "number",
+      "description": "Score needed for reintegration eligibility",
+      "default": 750
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "planning",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "description": {
+      "type": "string"
+    },
+    "available_tracks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ai_tech",
+          "physical_trades",
+          "life_skills"
+        ]
+      }
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "image_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "location"
+  ]
+}

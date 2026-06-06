@@ -1,0 +1,47 @@
+{
+  "name": "MarketplaceItem",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "accommodation",
+        "meals",
+        "recreation",
+        "personal_care",
+        "education",
+        "social"
+      ]
+    },
+    "nac_price": {
+      "type": "number"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "min_tier": {
+      "type": "string",
+      "enum": [
+        "newcomer",
+        "apprentice",
+        "contributor",
+        "citizen_ready"
+      ],
+      "default": "newcomer"
+    }
+  },
+  "required": [
+    "name",
+    "nac_price"
+  ]
+}

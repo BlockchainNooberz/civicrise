@@ -1,0 +1,38 @@
+{
+  "name": "BehaviorRating",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number",
+      "description": "1-10 scale"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "conduct",
+        "cooperation",
+        "initiative",
+        "community",
+        "overall"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "staff_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "resident_id",
+    "rating",
+    "date"
+  ]
+}

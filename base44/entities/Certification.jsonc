@@ -1,0 +1,44 @@
+{
+  "name": "Certification",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "certification_name": {
+      "type": "string"
+    },
+    "track": {
+      "type": "string",
+      "enum": [
+        "ai_tech",
+        "physical_trades",
+        "life_skills"
+      ]
+    },
+    "issued_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "nac_bonus_awarded": {
+      "type": "number"
+    },
+    "score_points_awarded": {
+      "type": "number"
+    },
+    "badge_icon": {
+      "type": "string"
+    },
+    "issuing_staff": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "resident_id",
+    "certification_name",
+    "issued_date"
+  ]
+}

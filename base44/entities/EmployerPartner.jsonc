@@ -1,0 +1,46 @@
+{
+  "name": "EmployerPartner",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "preferred_tracks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_positions": {
+      "type": "number",
+      "default": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "total_hired": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "company_name"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "name": "CommunityTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "camp_id": {
+      "type": "string"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Resident ID"
+    },
+    "nac_reward": {
+      "type": "number",
+      "default": 10
+    },
+    "score_points": {
+      "type": "number",
+      "default": 5
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "assigned",
+        "completed",
+        "verified"
+      ],
+      "default": "open"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "maintenance",
+        "mentoring",
+        "agriculture",
+        "community_service",
+        "other"
+      ]
+    }
+  },
+  "required": [
+    "title",
+    "camp_id"
+  ]
+}

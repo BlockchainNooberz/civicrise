@@ -1,0 +1,57 @@
+{
+  "name": "ReintegrationRequest",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "camp_id": {
+      "type": "string"
+    },
+    "nominated_by": {
+      "type": "string",
+      "description": "Staff name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "matched",
+        "completed"
+      ],
+      "default": "pending"
+    },
+    "reintegration_score_at_submission": {
+      "type": "number"
+    },
+    "nac_balance_at_submission": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "admin_review_notes": {
+      "type": "string"
+    },
+    "matched_employer_id": {
+      "type": "string"
+    },
+    "matched_housing_id": {
+      "type": "string"
+    },
+    "approved_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "resident_id",
+    "camp_id"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "TimeLog",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "camp_id": {
+      "type": "string"
+    },
+    "check_in": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "check_out": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "minutes_logged": {
+      "type": "number",
+      "default": 0
+    },
+    "nac_earned": {
+      "type": "number",
+      "default": 0
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "checked_in",
+        "completed"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "resident_id",
+    "camp_id",
+    "date"
+  ]
+}

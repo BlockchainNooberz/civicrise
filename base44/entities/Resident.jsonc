@@ -1,0 +1,103 @@
+{
+  "name": "Resident",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string",
+      "description": "Unique system ID"
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "intake_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "camp_id": {
+      "type": "string",
+      "description": "Assigned camp"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "reintegrated",
+        "on_leave",
+        "alumni_mentor"
+      ],
+      "default": "active"
+    },
+    "prior_skills": {
+      "type": "string"
+    },
+    "goals": {
+      "type": "string"
+    },
+    "health_notes": {
+      "type": "string"
+    },
+    "preferred_track": {
+      "type": "string",
+      "enum": [
+        "ai_tech",
+        "physical_trades",
+        "life_skills",
+        "mixed"
+      ]
+    },
+    "reintegration_score": {
+      "type": "number",
+      "default": 0
+    },
+    "nac_balance": {
+      "type": "number",
+      "default": 0
+    },
+    "nac_housing_fund": {
+      "type": "number",
+      "default": 0
+    },
+    "nac_total_earned": {
+      "type": "number",
+      "default": 0
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "newcomer",
+        "apprentice",
+        "contributor",
+        "citizen_ready"
+      ],
+      "default": "newcomer"
+    },
+    "total_hours": {
+      "type": "number",
+      "default": 0
+    },
+    "behavior_rating_avg": {
+      "type": "number",
+      "default": 5
+    },
+    "certifications_count": {
+      "type": "number",
+      "default": 0
+    },
+    "courses_completed": {
+      "type": "number",
+      "default": 0
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "Linked user account if resident has portal access"
+    }
+  },
+  "required": [
+    "full_name",
+    "intake_date",
+    "camp_id"
+  ]
+}

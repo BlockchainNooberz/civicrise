@@ -1,0 +1,76 @@
+{
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "track": {
+      "type": "string",
+      "enum": [
+        "ai_tech",
+        "physical_trades",
+        "life_skills"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "duration_hours": {
+      "type": "number"
+    },
+    "nac_bonus": {
+      "type": "number",
+      "description": "NAC awarded on completion",
+      "default": 50
+    },
+    "score_points": {
+      "type": "number",
+      "description": "Reintegration score points awarded",
+      "default": 25
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "default": "beginner"
+    },
+    "certifies": {
+      "type": "boolean",
+      "default": false
+    },
+    "certification_name": {
+      "type": "string"
+    },
+    "demand_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "icon": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "track"
+  ]
+}

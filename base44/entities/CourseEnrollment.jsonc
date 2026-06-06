@@ -1,0 +1,50 @@
+{
+  "name": "CourseEnrollment",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "enrolled_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "enrolled",
+        "in_progress",
+        "completed",
+        "dropped"
+      ],
+      "default": "enrolled"
+    },
+    "progress_percent": {
+      "type": "number",
+      "default": 0
+    },
+    "staff_approved_by": {
+      "type": "string"
+    },
+    "nac_awarded": {
+      "type": "number",
+      "default": 0
+    },
+    "score_points_awarded": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "resident_id",
+    "course_id",
+    "enrolled_date"
+  ]
+}

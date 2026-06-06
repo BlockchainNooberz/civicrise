@@ -1,0 +1,47 @@
+{
+  "name": "NACTransaction",
+  "type": "object",
+  "properties": {
+    "resident_id": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Positive = credit, Negative = debit"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "time_earned",
+        "course_bonus",
+        "certification_bonus",
+        "task_bonus",
+        "excellence_bonus",
+        "marketplace_spend",
+        "housing_fund_transfer",
+        "reintegration_payout",
+        "mentor_bonus"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "reference_id": {
+      "type": "string",
+      "description": "ID of related entity (TimeLog, CourseEnrollment, etc.)"
+    },
+    "balance_after": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "resident_id",
+    "amount",
+    "type",
+    "date"
+  ]
+}
