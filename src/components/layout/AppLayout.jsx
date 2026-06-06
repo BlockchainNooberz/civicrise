@@ -9,17 +9,17 @@ import { cn } from '@/lib/utils';
 import NACLogo from '@/components/ui/NACLogo';
 
 const adminNav = [
-  { label: 'Command Center', icon: LayoutDashboard, path: '/admin' },
-  { label: 'Facilities', icon: Building2, path: '/admin/camps' },
-  { label: 'Residents', icon: Users, path: '/admin/residents' },
-  { label: 'Curriculum', icon: BookOpen, path: '/admin/courses' },
-  { label: 'Time Logs', icon: Clock, path: '/admin/timelogs' },
-  { label: 'Reintegration', icon: TrendingUp, path: '/admin/reintegration' },
-  { label: 'Partners', icon: Star, path: '/admin/partners' },
-  { label: 'City Map', icon: Map, path: '/admin/citymap' },
-  { label: 'Supply Tracker', icon: Package, path: '/admin/supplies' },
-  { label: 'Investor Pitch', icon: Handshake, path: '/admin/pitch' },
-  { label: 'Marketplace', icon: ShoppingBag, path: '/admin/marketplace' },
+  { label: 'COMMAND CENTER', icon: LayoutDashboard, path: '/admin' },
+  { label: 'FACILITIES', icon: Building2, path: '/admin/camps' },
+  { label: 'POPULATION', icon: Users, path: '/admin/residents' },
+  { label: 'CURRICULUM', icon: BookOpen, path: '/admin/courses' },
+  { label: 'TIME & LABOR', icon: Clock, path: '/admin/timelogs' },
+  { label: 'REINTEGRATION', icon: TrendingUp, path: '/admin/reintegration' },
+  { label: 'COALITION', icon: Star, path: '/admin/partners' },
+  { label: 'ISLAND MAP', icon: Map, path: '/admin/citymap' },
+  { label: 'SUPPLY CHAIN', icon: Package, path: '/admin/supplies' },
+  { label: 'INVESTOR DECK', icon: Handshake, path: '/admin/pitch' },
+  { label: 'EXCHANGE', icon: ShoppingBag, path: '/admin/marketplace' },
 ];
 
 const residentNav = [
@@ -53,7 +53,7 @@ export default function AppLayout({ role = 'admin' }) {
         <div className="px-4 py-3 border-b border-border/50">
           <div className={cn("text-xs font-semibold uppercase tracking-widest px-2 py-1 rounded-full w-fit",
             role === 'admin' ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent")}>
-            {role === 'admin' ? 'Admin Portal' : 'Resident Portal'}
+            {role === 'admin' ? '⚡ OVERSIGHT COMMAND' : 'Resident Portal'}
           </div>
         </div>
       )}

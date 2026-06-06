@@ -66,8 +66,8 @@ export default function AdminDashboard() {
     <div className="p-6 max-w-7xl mx-auto space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display font-black text-4xl text-foreground">COMMAND CENTER</h1>
-          <p className="text-muted-foreground mt-1">Project Renaissance — Real-time Overview</p>
+          <h1 className="font-display font-black text-4xl text-foreground">OVERSIGHT COMMAND</h1>
+          <p className="text-muted-foreground mt-1">Project Renaissance · Vieques Island · Population: 136 Active Residents</p>
         </div>
         <Link to="/admin/residents/new" className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold text-sm glow-btn hover:scale-105 transition-all">
           <Users className="w-4 h-4" /> Intake Resident
