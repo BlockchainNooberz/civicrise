@@ -22,6 +22,8 @@ import ResidentDetail from '@/pages/admin/ResidentDetail';
 import CoursesPage from '@/pages/admin/CoursesPage';
 import ReintegrationPage from '@/pages/admin/ReintegrationPage';
 import PartnersPage from '@/pages/admin/PartnersPage';
+import CityMap from '@/pages/admin/CityMap';
+import SupplyTracker from '@/pages/admin/SupplyTracker';
 
 // Resident pages
 import ResidentDashboard from '@/pages/resident/ResidentDashboard';
@@ -71,6 +73,8 @@ const AuthenticatedApp = () => {
         <Route path="/admin/courses" element={<CoursesPage />} />
         <Route path="/admin/reintegration" element={<ReintegrationPage />} />
         <Route path="/admin/partners" element={<PartnersPage />} />
+        <Route path="/admin/citymap" element={<CityMap />} />
+        <Route path="/admin/supplies" element={<SupplyTracker />} />
         <Route path="/admin/marketplace" element={<Navigate to="/admin" replace />} />
         <Route path="/admin/timelogs" element={<ResidentsPage />} />
       </Route>

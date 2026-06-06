@@ -3,7 +3,7 @@ import { Link, useLocation, Outlet } from 'react-router-dom';
 import { 
   LayoutDashboard, Users, BookOpen, Clock, Award, 
   ShoppingBag, TrendingUp, Building2, ChevronLeft, 
-  ChevronRight, Star, Zap, Menu, X, LogOut
+  ChevronRight, Star, Zap, Menu, X, LogOut, Map, Package
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import NACLogo from '@/components/ui/NACLogo';
@@ -16,6 +16,8 @@ const adminNav = [
   { label: 'Time Logs', icon: Clock, path: '/admin/timelogs' },
   { label: 'Reintegration', icon: TrendingUp, path: '/admin/reintegration' },
   { label: 'Partners', icon: Star, path: '/admin/partners' },
+  { label: 'City Map', icon: Map, path: '/admin/citymap' },
+  { label: 'Supply Tracker', icon: Package, path: '/admin/supplies' },
   { label: 'Marketplace', icon: ShoppingBag, path: '/admin/marketplace' },
 ];
 
