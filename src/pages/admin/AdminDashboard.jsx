@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import TierBadge from '@/components/ui/TierBadge';
 import NACCounter from '@/components/ui/NACCounter';
 import NACEconomicChart from '@/components/admin/NACEconomicChart';
+import ReintegrationFlowChart from '@/components/admin/ReintegrationFlowChart';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload?.length) {
@@ -122,6 +123,9 @@ export default function AdminDashboard() {
         <StatCard label="Pending Review" value={pendingReintegration} icon={AlertCircle} color="blue" />
         <StatCard label="Active Camps" value={camps.length} icon={Building2} color="purple" />
       </div>
+
+      {/* Reintegration Pipeline Flow */}
+      <ReintegrationFlowChart residents={residents} reintegrations={reintegrations} />
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Tier distribution */}
