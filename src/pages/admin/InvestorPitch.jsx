@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import { base44 } from '@/api/base44Client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, TrendingUp, Zap, Send, Mail, Globe, Twitter, Phone, Copy, CheckCheck, ChevronLeft, ChevronRight, MapPin, Shield, Lock } from 'lucide-react';
 
@@ -43,7 +44,7 @@ const PARTNERS = [
     tier: 'Platinum Partner',
     urgency: 'Phase 1 RFP closes Q3 2026',
     carousel: [
-      { headline: 'The Data Backbone', body: 'Every resident profile, behavioral score, NAC transaction, and reintegration prediction runs on Palantir Foundry. 136+ residents today. 650,000 at scale. One unified graph.' },
+      { headline: 'The Data Backbone', body: 'Every resident profile, behavioral score, NAC transaction, and reintegration prediction runs on Palantir Foundry. Phase 1 live today. 650,000 at scale. One unified graph.' },
       { headline: 'Predictive Reintegration', body: 'Gotham flags residents approaching Citizen-Ready before staff even notice. Proactive intervention. Better outcomes. Fewer re-entries.' },
       { headline: 'Proof of Concept for DHS', body: 'This is the domestic AI welfare OS that every federal agency will want to license. Palantir gets first-mover positioning on a $40B TAM.' },
     ],
@@ -55,7 +56,7 @@ const PARTNERS = [
       ],
       templates: [
         { id: 'palantir-dm', label: '💬 Short Pitch', text: `Alex — I'm building a crypto-incentivized reintegration city on Vieques Island for 650,000 Americans. We need Palantir as our operating system. Real-time behavioral scoring, reintegration prediction, the works. This is Gotham and Foundry's defining deployment. Can I get 20 minutes? Demo: [YOUR_DEMO_LINK]` },
-        { id: 'palantir-email', label: '📧 Email Template', text: `Subject: Project Renaissance — Data Infrastructure RFP (Palantir-Exclusive)\n\nAlex,\n\nProject Renaissance is a privately operated reintegration city on Vieques Island — 136 residents today, scaling to 650,000. We need a real-time behavioral data OS, predictive reintegration modeling, and a unified resident graph across 50+ facilities.\n\nThere is one platform on Earth equipped to run this. You know who it is.\n\nI'd like to get your team on a call. The RFP is ready. The timeline is Q3 2026.\n\nHere's the demo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+        { id: 'palantir-email', label: '📧 Email Template', text: `Subject: Project Renaissance — Data Infrastructure RFP (Palantir-Exclusive)\n\nAlex,\n\nProject Renaissance is a privately operated reintegration city on Vieques Island — Phase 1 operational and scaling to 650,000. We need a real-time behavioral data OS, predictive reintegration modeling, and a unified resident graph across 50+ facilities.\n\nThere is one platform on Earth equipped to run this. You know who it is.\n\nI'd like to get your team on a call. The RFP is ready. The timeline is Q3 2026.\n\nHere's the demo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
       ],
     },
   },
@@ -207,7 +208,7 @@ const PARTNERS = [
       ],
       templates: [
         { id: 'thiel-dm', label: '💬 Short Pitch', text: `Peter — Zero to one. Private social OS. Crypto behavioral currency. No government. No bureaucracy. Island city off Puerto Rico. 650,000 Americans. Series A open. This is what you've been waiting for. Demo: [YOUR_DEMO_LINK]` },
-        { id: 'thiel-email', label: '📧 Investment Memo Cover', text: `Subject: Zero to One — The Private Welfare OS\n\nPeter,\n\nThe attached is an investment memo for Project Renaissance — the first privately operated, crypto-incentivized reintegration city in American history.\n\nKey thesis:\n• No comparable model exists. This is zero-to-one.\n• NAC behavioral currency = new asset class.\n• 8% equity at ground floor of what becomes a $80B+ global platform.\n• Government can never outcompete it — they'll eventually acquire it.\n\nVieques Island. 136 residents today. 650,000 at scale.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
+        { id: 'thiel-email', label: '📧 Investment Memo Cover', text: `Subject: Zero to One — The Private Welfare OS\n\nPeter,\n\nThe attached is an investment memo for Project Renaissance — the first privately operated, crypto-incentivized reintegration city in American history.\n\nKey thesis:\n• No comparable model exists. This is zero-to-one.\n• NAC behavioral currency = new asset class.\n• 8% equity at ground floor of what becomes a $80B+ global platform.\n• Government can never outcompete it — they'll eventually acquire it.\n\nVieques Island. Phase 1 operational today. Scaling to 650,000.\n\nDemo: [YOUR_DEMO_LINK]\n\n— [Your Name]` },
       ],
     },
   },
@@ -1023,6 +1024,13 @@ export default function InvestorPitch() {
   const [expanded, setExpanded] = useState(null);
   const [filterCat, setFilterCat] = useState('All');
   const [clockSelected, setClockSelected] = useState(null);
+  const [residentCount, setResidentCount] = useState(null);
+
+  useEffect(() => {
+    base44.entities.Resident.list('-created_date', 1000).then(r => {
+      setResidentCount(r.filter(x => x.status === 'active').length);
+    });
+  }, []);
 
   const categories = ['All', ...Array.from(new Set(PARTNERS.map(p => p.category)))];
   const filtered = filterCat === 'All' ? PARTNERS : PARTNERS.filter(p => p.category === filterCat);
@@ -1079,7 +1087,7 @@ export default function InvestorPitch() {
           {[
             { label: 'Partners', value: `${PARTNERS.length}` },
             { label: 'Total Capital Ask', value: `~$${(totalAsk / 1000).toFixed(1)}B` },
-            { label: 'Phase 1 Residents', value: '136' },
+            { label: 'Phase 1 Residents', value: residentCount !== null ? residentCount.toLocaleString() : '...' },
             { label: '10yr ROI', value: '$400B+' },
           ].map(s => (
             <div key={s.label} className="glass rounded-2xl p-3 border border-border/50 text-center">
@@ -1206,14 +1214,14 @@ export default function InvestorPitch() {
       </div>
 
       {/* Outreach Strategy */}
-      <OutreachStrategy />
+      <OutreachStrategy residentCount={residentCount} />
 
       {/* Coalition footer */}
       <div className="glass rounded-3xl p-8 border border-primary/20 text-center">
         <div className="font-display font-black text-3xl md:text-4xl text-gradient-gold mb-3">LET'S MAKE IT HAPPEN!</div>
         <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
           No single organization can end this. But <strong className="text-foreground">this coalition</strong> — the world's most powerful people, companies, and institutions — can.
-          Every partner gets exactly what they need. And 136 lives today become 650,000 tomorrow.
+          Every partner gets exactly what they need. And <strong className="text-foreground">{residentCount !== null ? residentCount.toLocaleString() : '...'} lives today</strong> become 650,000 tomorrow.
         </p>
       </div>
     </div>
@@ -1262,7 +1270,7 @@ function IslandSection() {
   );
 }
 
-function OutreachStrategy() {
+function OutreachStrategy({ residentCount }) {
   const [open, setOpen] = useState(null);
 
   const strategies = [
@@ -1328,7 +1336,7 @@ function OutreachStrategy() {
         </h2>
         <p className="text-muted-foreground max-w-2xl leading-relaxed">
           The demo exists. The pitch is built. The island is chosen. The only question is delivery.
-          <strong className="text-foreground"> Not because we're playing games. Because 136 people are on the island today, and 650,000 are waiting.</strong>
+          <strong className="text-foreground"> Not because we're playing games. Because {residentCount !== null ? residentCount.toLocaleString() : '...'} people are on the island today, and 650,000 are waiting.</strong>
         </p>
       </div>
       <div className="space-y-3">
