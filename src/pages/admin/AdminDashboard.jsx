@@ -64,19 +64,52 @@ export default function AdminDashboard() {
 
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-8">
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display font-black text-4xl text-foreground">OVERSIGHT COMMAND</h1>
-          <p className="text-muted-foreground mt-1">Project Renaissance · Site Zero: Vieques Island · <span className="text-primary font-semibold">{residents.filter(r => r.status === 'active').length} Under Management</span> · Full Population Control Active</p>
+          <p className="text-muted-foreground mt-1">
+            Project Renaissance · Site Zero: Vieques Island ·{' '}
+            <span className="text-primary font-semibold">{residents.filter(r => r.status === 'active').length} Under Management</span>
+            {' '}·{' '}
+            <span className="text-accent font-semibold">
+              {camps.reduce((s, c) => s + (c.capacity || 0), 0).toLocaleString()} Phase 1 Capacity
+            </span>
+            {' '}·{' '}
+            <span className="text-green-400 font-semibold">650,000 National Target</span>
+            {' '}· Full Population Control Active
+          </p>
         </div>
         <Link to="/admin/residents/new" className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-semibold text-sm glow-btn hover:scale-105 transition-all">
           <Users className="w-4 h-4" /> Intake Resident
         </Link>
       </div>
 
+      {/* Intake progress bar */}
+      {camps.length > 0 && (() => {
+        const totalCap = camps.reduce((s, c) => s + (c.capacity || 0), 0);
+        const activeCount = residents.filter(r => r.status === 'active').length;
+        const pct = totalCap ? Math.min(Math.round((activeCount / totalCap) * 100), 100) : 0;
+        return (
+          <div className="glass rounded-2xl p-4 border border-primary/20">
+            <div className="flex items-center justify-between mb-2 text-xs">
+              <span className="font-bold text-primary tracking-widest uppercase">Phase 1 Intake Progress</span>
+              <span className="text-muted-foreground">{activeCount.toLocaleString()} / {totalCap.toLocaleString()} residents · <span className="text-primary font-bold">{pct}% capacity</span></span>
+            </div>
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-primary rounded-full transition-all glow-btn" style={{ width: `${pct}%` }} />
+            </div>
+            <div className="flex justify-between text-xs text-muted-foreground mt-1.5">
+              <span>Phase 1 Operational</span>
+              <span className="text-accent font-semibold">650,000 National Goal</span>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard label="Total Residents" value={residents.length} icon={Users} color="blue" />
+        <StatCard label="Live Intake Count" value={residents.length.toLocaleString()} icon={Users} color="blue" />
         <StatCard label="Active Facilities" value={camps.filter(c => c.status === 'active').length} icon={Building2} color="purple" />
         <StatCard label="NAC Distributed" value={`${Math.round(totalNAC).toLocaleString()}`} icon={Zap} color="gold" />
         <StatCard label="Avg. Score" value={avgScore} icon={TrendingUp} color="green" />
