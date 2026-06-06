@@ -83,14 +83,14 @@ export default function MrBeastPitch() {
   return (
     <div>
       <div className="mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-widest mb-3">
-          SECTION 07 — MRBEAST PARTNERSHIP PITCH
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-bold tracking-widest mb-3">
+          SECTION 09 — MEDIA & CONTENT STRATEGY
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-3">
-          THE PITCH TO <span className="text-gradient-gold">JIMMY DONALDSON</span>
+          THE MEDIA AMPLIFICATION <span className="text-gradient-gold">ARCHITECTURE</span>
         </h2>
         <p className="text-muted-foreground max-w-2xl">
-          Why Project Renaissance is the most compelling creative, philanthropic, and business opportunity MrBeast has ever been offered — backed by data, not vibes.
+          How Project Renaissance generates $5B+ in annual content views, funds itself through media rights, and uses viral social mechanics to drive voluntary enrollment — without a single dollar in traditional advertising.
         </p>
       </div>
 

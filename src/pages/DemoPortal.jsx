@@ -21,7 +21,7 @@ const SECTIONS = [
   { id: 'beast', label: '06 Beast Games', short: 'Beast' },
   { id: 'economic', label: '07 Economic Case', short: 'Economy' },
   { id: 'metrics', label: '08 Success Metrics', short: 'Metrics' },
-  { id: 'pitch', label: '09 MrBeast Pitch', short: 'Pitch' },
+  { id: 'pitch', label: '09 Media Strategy', short: 'Media' },
 ];
 
 export default function DemoPortal() {
@@ -145,7 +145,7 @@ export default function DemoPortal() {
             <span className="text-gradient-blue">AMERICAN RENAISSANCE CITY</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed mb-4">
-            A fully sealed, government-supported, voluntary betterment city designed for scale — sourcing displaced populations from Arizona, California, Colorado, and New York, with a gamified civic economy and world-class community design co-developed with the MrBeast / Beast Games creative team.
+            A fully sealed, government-supported, mandatory placement city designed for scale — sourcing displaced and court-ordered populations from Arizona, California, Colorado, and New York, with a structured civic economy, behavioral compliance architecture, and world-class community design.
           </p>
           <p className="text-muted-foreground/60 text-sm max-w-xl mx-auto mb-10">
             All population, cost, and outcome data sourced from HUD 2024 PIT Count, USICH 2024, NYC Comptroller, CA State Auditor, Urban Institute, SAMHSA, and National Alliance to End Homelessness.

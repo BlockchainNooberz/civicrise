@@ -75,8 +75,8 @@ export default function DemoAccess() {
           {typedLine}<span className="animate-pulse">|</span>
         </h2>
         <p className="text-muted-foreground text-sm mt-4 max-w-md mx-auto leading-relaxed">
-          This demo isn't public. It was built for a specific tier of human — decision-makers, visionaries, and leaders who can actually move the needle on 653,100 lives.
-          <span className="text-foreground font-semibold"> Not because we're gatekeeping. Because we really, really care.</span>
+          This demo isn't public. It was built for decision-makers, capital allocators, and institutional leaders who understand that order requires infrastructure — and infrastructure requires control.
+          <span className="text-foreground font-semibold"> 653,100 Americans are ungoverned tonight. That ends here.</span>
         </p>
       </motion.div>
 
@@ -97,7 +97,7 @@ export default function DemoAccess() {
           ))}
         </div>
         <div className="text-xs text-muted-foreground/30 text-center mt-3 italic">
-          …and a small number of others who've demonstrated they're serious.
+          …and a small number of others cleared for full operational briefing.
         </div>
       </div>
 

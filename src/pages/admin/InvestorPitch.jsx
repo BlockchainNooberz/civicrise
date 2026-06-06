@@ -998,12 +998,12 @@ function ClockWheel({ onSelect, selected }) {
             >
               <div className="rounded-full flex items-center justify-center transition-all duration-300 border-2"
                 style={{
-                  width: 'clamp(28px, 4.5vw, 50px)',
-                  height: 'clamp(28px, 4.5vw, 50px)',
+                  width: 'clamp(36px, 6vw, 64px)',
+                  height: 'clamp(36px, 6vw, 64px)',
                   background: isSelected ? partner.color : 'rgba(13,21,38,0.92)',
                   borderColor: partner.color,
-                  boxShadow: isSelected ? `0 0 18px ${partner.color}80` : `0 0 6px ${partner.color}30`,
-                  fontSize: 'clamp(11px, 1.8vw, 20px)',
+                  boxShadow: isSelected ? `0 0 22px ${partner.color}90` : `0 0 8px ${partner.color}40`,
+                  fontSize: 'clamp(15px, 2.5vw, 28px)',
                 }}>
                 {partner.logo}
               </div>

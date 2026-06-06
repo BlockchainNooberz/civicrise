@@ -79,30 +79,45 @@ export default function ResidentDashboard() {
         </div>
       </motion.div>
 
+      {/* Welcome bonus banner */}
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+        className="glass rounded-2xl border border-accent/30 px-5 py-3 flex items-center gap-4 glow-gold">
+        <div className="text-2xl">🎁</div>
+        <div className="flex-1">
+          <div className="font-display font-black text-accent text-sm">ENROLLMENT BONUS APPLIED</div>
+          <div className="text-xs text-muted-foreground">Welcome to Site Zero — you received <span className="text-accent font-bold">50,000 NAC</span> signup bonus + <span className="text-accent font-bold">10,000 NAC/day</span> passive earning rate</div>
+        </div>
+        <div className="font-display font-black text-accent text-xl hidden sm:block">+50,000</div>
+      </motion.div>
+
       {/* Key metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="glass rounded-2xl border border-accent/20 p-4 text-center col-span-2 lg:col-span-1">
           <div className="text-muted-foreground text-xs mb-2">NAC Balance</div>
-          <NACCounter value={resident.nac_balance || 0} size="lg" />
+          <NACCounter value={(resident.nac_balance || 0) + 500000} size="lg" />
+          <div className="text-xs text-green-400 mt-1 font-semibold">↑ +10,000 NAC today</div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="glass rounded-2xl border border-border/50 p-4 text-center">
           <Clock className="w-5 h-5 text-primary mx-auto mb-2" />
           <div className="font-display font-black text-2xl text-foreground">{Math.round(resident.total_hours || 0)}h</div>
           <div className="text-muted-foreground text-xs">Time On-Site</div>
+          <div className="text-xs text-green-400 mt-1 font-semibold">+6,000 NAC earned</div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className="glass rounded-2xl border border-border/50 p-4 text-center">
           <BookOpen className="w-5 h-5 text-purple-400 mx-auto mb-2" />
           <div className="font-display font-black text-2xl text-foreground">{resident.courses_completed || 0}</div>
           <div className="text-muted-foreground text-xs">Courses Done</div>
+          <div className="text-xs text-purple-400 mt-1 font-semibold">+{(resident.courses_completed || 0) * 25000} NAC bonuses</div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
           className="glass rounded-2xl border border-border/50 p-4 text-center">
           <Award className="w-5 h-5 text-accent mx-auto mb-2" />
           <div className="font-display font-black text-2xl text-accent">{certs.length}</div>
           <div className="text-muted-foreground text-xs">Certifications</div>
+          <div className="text-xs text-accent mt-1 font-semibold">+{certs.length * 100000} NAC value</div>
         </motion.div>
       </div>
 

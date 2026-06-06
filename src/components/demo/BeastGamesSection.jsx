@@ -60,10 +60,10 @@ export default function BeastGamesSection() {
           SECTION 05 — COMMUNITY EXPERIENCE
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-3">
-          DESIGNED BY <span className="text-gradient-gold">MRBEAST & THE BEAST GAMES TEAM</span>
+          BEHAVIORAL COMPLIANCE <span className="text-gradient-gold">THROUGH STRUCTURED COMPETITION</span>
         </h2>
         <p className="text-muted-foreground max-w-2xl">
-          The community experience layer is co-designed with MrBeast and the Beast Games production team — making Project Renaissance the world's most entertaining and effective path to civic reintegration.
+          The community experience layer is engineered to maximize voluntary compliance through positive reinforcement, competitive social dynamics, and reward-based behavior shaping — making structured participation feel like a game residents choose to win.
         </p>
       </div>
 
@@ -163,9 +163,9 @@ export default function BeastGamesSection() {
 
       {/* Partnership callout */}
       <div className="glass rounded-2xl p-6 border border-primary/20 text-center">
-        <div className="font-display text-3xl font-black text-foreground mb-2">THE PARTNERSHIP</div>
+        <div className="font-display text-3xl font-black text-foreground mb-2">COMPLIANCE THROUGH COMPETITION</div>
         <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed mb-4">
-          MrBeast and the Beast Games team serve as Chief Community Experience Officers. Their role: design every gamification element, host quarterly Beast Games seasons, produce content that makes Project Renaissance the most-watched social experiment in history — and in doing so, fund the entire program through ad revenue and sponsorships.
+          Structured competition is the most effective compliance architecture ever designed. When residents compete for NAC, status, and tier advancement, they self-regulate behavior, enforce community norms, and drive measurable participation without external coercion. The program funds itself through media rights while generating the data proving the model works at scale.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
           {[

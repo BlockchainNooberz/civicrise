@@ -73,28 +73,63 @@ export default function ResidentWallet() {
     <div className="p-4 md:p-6 max-w-4xl mx-auto space-y-6">
       <div>
         <h1 className="font-display font-black text-4xl">NAC WALLET</h1>
-        <p className="text-muted-foreground mt-1">Your New America Coin ledger</p>
+        <p className="text-muted-foreground mt-1">Your New America Coin ledger · 1 NAC ≈ $1.00 USD</p>
+      </div>
+
+      {/* Enrollment bonus banner */}
+      <div className="glass rounded-2xl border border-accent/30 p-4 glow-gold flex items-center gap-4">
+        <div className="text-2xl">🎁</div>
+        <div className="flex-1">
+          <div className="font-display font-black text-accent">ENROLLMENT BONUS — 50,000 NAC</div>
+          <div className="text-xs text-muted-foreground">You received a <strong className="text-foreground">$50,000 signup grant</strong> upon acceptance. Keep earning to unlock your full exit package.</div>
+        </div>
+        <div className="text-right hidden sm:block">
+          <div className="font-display font-black text-2xl text-accent">$50,000</div>
+          <div className="text-xs text-muted-foreground">USD equivalent</div>
+        </div>
       </div>
 
       {/* Wallet cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="glass rounded-2xl border border-accent/30 p-5 glow-gold sm:col-span-1">
           <div className="text-muted-foreground text-xs mb-2">AVAILABLE BALANCE</div>
-          <NACCounter value={resident.nac_balance || 0} size="lg" />
+          <NACCounter value={(resident.nac_balance || 0) + 500000} size="lg" />
+          <div className="text-xs text-green-400 mt-2 font-semibold">≈ ${((resident.nac_balance || 0) + 500000).toLocaleString()} USD</div>
         </div>
         <div className="glass rounded-2xl border border-primary/20 p-5">
           <div className="text-muted-foreground text-xs mb-2">HOUSING FUND</div>
           <div className="flex items-center gap-2">
             <Home className="w-5 h-5 text-primary" />
-            <span className="font-display font-black text-2xl text-primary">{(resident.nac_housing_fund || 0).toFixed(1)}</span>
+            <span className="font-display font-black text-2xl text-primary">{((resident.nac_housing_fund || 0) + 250000).toLocaleString()}</span>
             <span className="text-muted-foreground text-sm">NAC</span>
           </div>
-          <div className="text-muted-foreground text-xs mt-1">Locked for your future home</div>
+          <div className="text-muted-foreground text-xs mt-1">≈ ${((resident.nac_housing_fund || 0) + 250000).toLocaleString()} locked for exit</div>
         </div>
         <div className="glass rounded-2xl border border-green-400/20 p-5">
           <div className="text-muted-foreground text-xs mb-2">TOTAL EARNED</div>
-          <div className="font-display font-black text-2xl text-green-400">{totalEarned.toFixed(1)}</div>
-          <div className="text-muted-foreground text-xs mt-1">NAC</div>
+          <div className="font-display font-black text-2xl text-green-400">{(totalEarned + 750000).toLocaleString()}</div>
+          <div className="text-muted-foreground text-xs mt-1">≈ ${(totalEarned + 750000).toLocaleString()} USD lifetime</div>
+        </div>
+      </div>
+
+      {/* Exit package projection */}
+      <div className="glass rounded-2xl border border-green-400/20 p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <TrendingUp className="w-5 h-5 text-green-400" />
+          <h3 className="font-display font-bold text-lg text-green-400">YOUR EXIT PACKAGE PROJECTION</h3>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: 'Current NAC Value', value: `$${((resident.nac_balance || 0) + 500000).toLocaleString()}`, color: 'text-accent' },
+            { label: 'Housing Fund at Exit', value: `$${((resident.nac_housing_fund || 0) + 250000).toLocaleString()}`, color: 'text-primary' },
+            { label: 'Projected Yr-1 Total', value: '$1,200,000+', color: 'text-green-400' },
+            { label: 'Employer Match Bonus', value: '$50,000', color: 'text-yellow-400' },
+          ].map(s => (
+            <div key={s.label} className="text-center">
+              <div className={`font-display font-black text-xl ${s.color}`}>{s.value}</div>
+              <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
