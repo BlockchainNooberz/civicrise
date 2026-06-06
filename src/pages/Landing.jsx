@@ -268,7 +268,7 @@ export default function Landing() {
           Population data: HUD 2024 PIT Count · Cost data: NYC Comptroller, CA State Auditor, Urban Institute · Outcome benchmarks: SAMHSA 2022, National Alliance to End Homelessness 2024
         </p>
         <div>
-          <Link to="/demo-access" className="inline-flex items-center gap-2 text-xs text-muted-foreground/40 hover:text-yellow-400/70 transition-colors border border-border/20 hover:border-yellow-400/30 px-3 py-1.5 rounded-full">
+          <Link to="/demo-access" className="inline-flex items-center gap-3 text-base font-semibold text-yellow-400 hover:text-yellow-300 transition-colors border border-yellow-400/40 hover:border-yellow-400/60 px-5 py-3 rounded-full bg-yellow-400/5 hover:bg-yellow-400/10">
             🔒 This demo isn't for everyone. You know if it's for you.
           </Link>
         </div>
