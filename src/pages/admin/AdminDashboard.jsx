@@ -31,7 +31,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     Promise.all([
-      base44.entities.Resident.list('-created_date', 1000),
+      base44.entities.Resident.filter({}, '-created_date', 1000),
       base44.entities.Camp.list(),
       base44.entities.NACTransaction.list('-created_date', 200),
       base44.entities.ReintegrationRequest.list('-created_date', 50),
