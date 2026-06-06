@@ -22,7 +22,7 @@ export default function ResidentsPage() {
 
   useEffect(() => {
     Promise.all([
-      base44.entities.Resident.list('-created_date', 200),
+      base44.entities.Resident.filter({}, '-created_date', 1000),
       base44.entities.Camp.list(),
       base44.entities.TimeLog.filter({ status: 'checked_in' }),
     ]).then(([r, c, tl]) => { setResidents(r); setCamps(c); setTimeLogs(tl); setLoading(false); });

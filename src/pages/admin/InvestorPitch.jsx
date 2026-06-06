@@ -1027,7 +1027,7 @@ export default function InvestorPitch() {
   const [residentCount, setResidentCount] = useState(null);
 
   useEffect(() => {
-    base44.entities.Resident.list('-created_date', 1000).then(r => {
+    base44.entities.Resident.filter({}, '-created_date', 1000).then(r => {
       setResidentCount(r.filter(x => x.status === 'active').length);
     });
   }, []);
