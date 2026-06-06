@@ -378,41 +378,203 @@ const totalAsk = PARTNERS.reduce((sum, p) => {
   return sum + (match[2] === 'B' ? val * 1000 : val);
 }, 0);
 
+function ClockWheel({ onSelect, selected }) {
+  const count = PARTNERS.length;
+  const radius = 42; // % of container
+  const CENTER = 50;
+
+  return (
+    <div className="relative w-full" style={{ paddingBottom: '100%', maxWidth: 700, margin: '0 auto' }}>
+      <div className="absolute inset-0">
+        {/* Glow backdrop */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-1/2 h-1/2 rounded-full opacity-20 blur-3xl"
+            style={{ background: 'radial-gradient(circle, #F59E0B, #3B82F6, transparent)' }} />
+        </div>
+
+        {/* Outer orbit ring */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" style={{ pointerEvents: 'none' }}>
+          <circle cx="50" cy="50" r={radius} fill="none"
+            stroke="rgba(59,130,246,0.18)" strokeWidth="0.4" strokeDasharray="1.2 0.8" />
+          <circle cx="50" cy="50" r={radius - 4} fill="none"
+            stroke="rgba(245,158,11,0.08)" strokeWidth="0.2" />
+          {/* Spoke lines */}
+          {PARTNERS.map((_, i) => {
+            const angle = (i / count) * 360 - 90;
+            const rad = (angle * Math.PI) / 180;
+            const x2 = CENTER + (radius - 1) * Math.cos(rad);
+            const y2 = CENTER + (radius - 1) * Math.sin(rad);
+            return (
+              <line key={i} x1="50" y1="50" x2={x2} y2={y2}
+                stroke="rgba(59,130,246,0.06)" strokeWidth="0.2" />
+            );
+          })}
+        </svg>
+
+        {/* Center piece */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-center z-10 select-none"
+            style={{ width: '38%' }}
+          >
+            <div className="glass-strong rounded-full flex flex-col items-center justify-center border border-yellow-400/30 glow-gold"
+              style={{ aspectRatio: '1', padding: '8%' }}>
+              <div className="font-display font-black text-gradient-gold leading-tight"
+                style={{ fontSize: 'clamp(1rem, 3vw, 2rem)' }}>
+                LET'S MAKE
+              </div>
+              <div className="font-display font-black text-foreground leading-tight"
+                style={{ fontSize: 'clamp(1rem, 3vw, 2rem)' }}>
+                IT
+              </div>
+              <div className="font-display font-black text-gradient-gold leading-tight"
+                style={{ fontSize: 'clamp(1rem, 3vw, 2rem)' }}>
+                HAPPEN!
+              </div>
+              <div className="text-muted-foreground mt-1" style={{ fontSize: 'clamp(0.5rem, 1vw, 0.75rem)' }}>
+                {PARTNERS.length} Partners
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Partner nodes around the clock */}
+        {PARTNERS.map((partner, i) => {
+          const angle = (i / count) * 360 - 90;
+          const rad = (angle * Math.PI) / 180;
+          const x = CENTER + radius * Math.cos(rad);
+          const y = CENTER + radius * Math.sin(rad);
+          const isSelected = selected === partner.id;
+
+          return (
+            <motion.button
+              key={partner.id}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+              onClick={() => onSelect(partner.id)}
+              title={partner.name}
+              className="absolute flex flex-col items-center"
+              style={{
+                left: `${x}%`,
+                top: `${y}%`,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 20,
+              }}
+            >
+              {/* Circle */}
+              <div
+                className="rounded-full flex items-center justify-center transition-all duration-300 border-2"
+                style={{
+                  width: 'clamp(36px, 6vw, 58px)',
+                  height: 'clamp(36px, 6vw, 58px)',
+                  background: isSelected ? partner.color : 'rgba(13,21,38,0.92)',
+                  borderColor: partner.color,
+                  boxShadow: isSelected ? `0 0 18px ${partner.color}80` : `0 0 6px ${partner.color}30`,
+                  fontSize: 'clamp(14px, 2vw, 22px)',
+                }}
+              >
+                {partner.logo}
+              </div>
+              {/* Label */}
+              <div
+                className="font-display font-bold text-center leading-tight mt-1 transition-colors"
+                style={{
+                  color: isSelected ? partner.color : '#94a3b8',
+                  fontSize: 'clamp(7px, 0.9vw, 11px)',
+                  maxWidth: 'clamp(48px, 8vw, 72px)',
+                  lineHeight: 1.1,
+                }}
+              >
+                {partner.name.split(' ')[0]}
+                {partner.name.split(' ')[1] && partner.name.split(' ')[1].length < 7 ? ` ${partner.name.split(' ')[1]}` : ''}
+              </div>
+            </motion.button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function InvestorPitch() {
   const [expanded, setExpanded] = useState(null);
   const [filterCat, setFilterCat] = useState('All');
+  const [clockSelected, setClockSelected] = useState(null);
 
   const categories = ['All', ...Array.from(new Set(PARTNERS.map(p => p.category)))];
   const filtered = filterCat === 'All' ? PARTNERS : PARTNERS.filter(p => p.category === filterCat);
 
+  const handleClockSelect = (id) => {
+    setClockSelected(id === clockSelected ? null : id);
+    setFilterCat('All');
+    setExpanded(id === clockSelected ? null : id);
+    setTimeout(() => {
+      document.getElementById(`partner-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
+
+  const clockPartner = clockSelected ? PARTNERS.find(p => p.id === clockSelected) : null;
+
   return (
     <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-8">
-      {/* Header */}
-      <div className="relative glass rounded-3xl p-8 md:p-12 border border-primary/20 overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 30% 50%, #3B82F6, transparent 60%), radial-gradient(circle at 70% 50%, #F59E0B, transparent 60%)' }} />
-        <div className="relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-bold tracking-widest mb-5">
+
+      {/* Clock Wheel Hero */}
+      <div className="relative glass rounded-3xl border border-primary/20 overflow-hidden py-8 px-4">
+        <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at 50% 50%, #F59E0B, transparent 70%)' }} />
+        <div className="relative text-center mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-bold tracking-widest">
             ⚡ CONFIDENTIAL — PROJECT RENAISSANCE · COALITION PITCH DECK
           </div>
-          <h1 className="font-display font-black text-5xl md:text-7xl text-foreground mb-4">
-            PARTNERS IN <span className="text-gradient-gold">HISTORY</span>
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mb-8">
-            Project Renaissance requires a coalition of the most powerful organizations in the world. Below is a tailored pitch for each partner — their ask, their return, and why they cannot afford to say no.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: 'Partner Organizations', value: `${PARTNERS.length}` },
-              { label: 'Total Capital Ask', value: `~$${Math.round(totalAsk / 1000).toFixed(1)}B` },
-              { label: 'Lives Transformed', value: '653,100' },
-              { label: 'Projected 10yr ROI', value: '$400B+' },
-            ].map(s => (
-              <div key={s.label} className="glass rounded-2xl p-4 border border-border/50 text-center">
-                <div className="font-display font-black text-3xl text-gradient-gold">{s.value}</div>
-                <div className="text-muted-foreground text-xs mt-1">{s.label}</div>
+        </div>
+
+        <ClockWheel onSelect={handleClockSelect} selected={clockSelected} />
+
+        {/* Selected partner quick-view */}
+        {clockPartner && (
+          <motion.div
+            key={clockPartner.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 mx-auto max-w-2xl glass rounded-2xl p-5 border"
+            style={{ borderColor: `${clockPartner.color}40` }}
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-3xl">{clockPartner.logo}</span>
+              <div>
+                <div className="font-display font-black text-xl" style={{ color: clockPartner.color }}>{clockPartner.name}</div>
+                <div className="text-xs text-muted-foreground">{clockPartner.person} · {clockPartner.tier}</div>
               </div>
-            ))}
-          </div>
+              <div className="ml-auto text-right hidden sm:block">
+                <div className="font-display font-bold text-accent text-sm">{clockPartner.ask}</div>
+                <div className="text-xs text-muted-foreground">{clockPartner.equity}</div>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground italic mb-2">{clockPartner.tagline}</p>
+            <button onClick={() => document.getElementById(`partner-${clockPartner.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              className="text-xs font-bold px-3 py-1.5 rounded-full border transition-colors"
+              style={{ color: clockPartner.color, borderColor: `${clockPartner.color}40` }}>
+              View Full Pitch ↓
+            </button>
+          </motion.div>
+        )}
+
+        {/* Summary stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 max-w-3xl mx-auto">
+          {[
+            { label: 'Partners', value: `${PARTNERS.length}` },
+            { label: 'Total Capital Ask', value: `~$${Math.round(totalAsk / 1000).toFixed(1)}B` },
+            { label: 'Lives Transformed', value: '653,100' },
+            { label: '10yr ROI', value: '$400B+' },
+          ].map(s => (
+            <div key={s.label} className="glass rounded-2xl p-3 border border-border/50 text-center">
+              <div className="font-display font-black text-2xl text-gradient-gold">{s.value}</div>
+              <div className="text-muted-foreground text-xs mt-0.5">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -438,6 +600,7 @@ export default function InvestorPitch() {
 
           return (
             <motion.div key={partner.id}
+              id={`partner-${partner.id}`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.04 }}
@@ -531,19 +694,9 @@ export default function InvestorPitch() {
         })}
       </div>
 
-      {/* Coalition summary */}
+      {/* Coalition footer */}
       <div className="glass rounded-3xl p-8 border border-primary/20 text-center">
-        <div className="text-xs font-bold text-primary tracking-widest uppercase mb-4">The Coalition Assembled</div>
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {PARTNERS.map(p => (
-            <button key={p.id}
-              onClick={() => { setExpanded(p.id); setFilterCat('All'); setTimeout(() => document.getElementById(`partner-${p.id}`)?.scrollIntoView({ behavior: 'smooth' }), 100); }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-border/50 hover:border-primary/30 transition-all text-sm">
-              <span>{p.logo}</span>
-              <span className="text-muted-foreground text-xs">{p.name.split(' ')[0]}</span>
-            </button>
-          ))}
-        </div>
+        <div className="font-display font-black text-3xl md:text-4xl text-gradient-gold mb-3">LET'S MAKE IT HAPPEN!</div>
         <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
           No single organization can solve homelessness. But <strong className="text-foreground">this coalition</strong> — the world's most powerful people, companies, and institutions — can. Every partner gets exactly what they need. And 653,100 Americans get their lives back.
         </p>
