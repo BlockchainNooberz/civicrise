@@ -182,6 +182,11 @@ export default function Landing() {
           <span className="font-display font-bold text-gradient-blue">PROJECT RENAISSANCE</span>
         </div>
         <p>New America Initiative — Powered by AI, Built for People</p>
+        <div className="mt-4">
+          <Link to="/demo-access" className="inline-flex items-center gap-2 text-xs text-muted-foreground/50 hover:text-primary/70 transition-colors border border-border/30 hover:border-primary/30 px-3 py-1.5 rounded-full">
+            🔒 Stakeholder Demo Portal
+          </Link>
+        </div>
       </footer>
     </div>
   );

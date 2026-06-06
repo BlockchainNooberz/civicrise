@@ -9,6 +9,8 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
 // Pages
 import Landing from '@/pages/Landing';
+import DemoAccess from '@/pages/DemoAccess';
+import DemoPortal from '@/pages/DemoPortal';
 import AppLayout from '@/components/layout/AppLayout';
 
 // Admin pages
@@ -56,6 +58,8 @@ const AuthenticatedApp = () => {
     <Routes>
       {/* Landing */}
       <Route path="/" element={<Landing />} />
+      <Route path="/demo-access" element={<DemoAccess />} />
+      <Route path="/demo" element={<DemoPortal />} />
 
       {/* Admin portal */}
       <Route element={<AdminLayout />}>
