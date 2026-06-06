@@ -24,6 +24,7 @@ import ReintegrationPage from '@/pages/admin/ReintegrationPage';
 import PartnersPage from '@/pages/admin/PartnersPage';
 import CityMap from '@/pages/admin/CityMap';
 import SupplyTracker from '@/pages/admin/SupplyTracker';
+import InvestorPitch from '@/pages/admin/InvestorPitch';
 
 // Resident pages
 import ResidentDashboard from '@/pages/resident/ResidentDashboard';
@@ -75,6 +76,7 @@ const AuthenticatedApp = () => {
         <Route path="/admin/partners" element={<PartnersPage />} />
         <Route path="/admin/citymap" element={<CityMap />} />
         <Route path="/admin/supplies" element={<SupplyTracker />} />
+        <Route path="/admin/pitch" element={<InvestorPitch />} />
         <Route path="/admin/marketplace" element={<Navigate to="/admin" replace />} />
         <Route path="/admin/timelogs" element={<ResidentsPage />} />
       </Route>
