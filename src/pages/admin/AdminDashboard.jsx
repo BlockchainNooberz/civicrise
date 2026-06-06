@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Users, Building2, Zap, TrendingUp, Award, Clock, UserCheck, AlertCircle } from 'lucide-react';
 import StatCard from '@/components/ui/StatCard';
+import ImpactCalculator from '@/components/admin/ImpactCalculator';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { Link } from 'react-router-dom';
 import TierBadge from '@/components/ui/TierBadge';
@@ -154,6 +155,9 @@ export default function AdminDashboard() {
           ))}
         </div>
       </div>
+
+      {/* National Impact Calculator */}
+      <ImpactCalculator />
 
       {/* Camps overview */}
       {camps.length > 0 && (
