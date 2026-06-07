@@ -833,109 +833,42 @@ const totalAsk = PARTNERS.reduce((sum, p) => {
   return sum + (match[2] === 'B' ? val * 1000 : val);
 }, 0);
 
-function OutreachTab({ partner }) {
-  const [copied, setCopied] = useState(null);
-  const color = partner.color;
-  const o = partner.outreach;
 
-  const copy = (text, id) => {
-    navigator.clipboard.writeText(text);
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
-  };
-
-  return (
-    <div className="p-5 space-y-5">
-      {/* Channels */}
-      <div className="grid sm:grid-cols-3 gap-3">
-        {o.channels.map(c => (
-          <div key={c.label} className="glass rounded-xl p-3 border border-border/40">
-            <div className="font-display font-bold text-sm mb-0.5" style={{ color }}>{c.label}</div>
-            <div className="text-xs font-mono text-muted-foreground mb-1">{c.handle}</div>
-            <div className="text-xs text-muted-foreground leading-relaxed">{c.note}</div>
-          </div>
-        ))}
-      </div>
-      {/* Templates */}
-      <div className="space-y-3">
-        <div className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color }}>Copy-Ready Templates</div>
-        {o.templates.map(t => (
-          <div key={t.id} className="glass rounded-xl border border-border/50 overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-2 border-b border-border/30">
-              <span className="text-xs font-bold text-muted-foreground">{t.label}</span>
-              <button onClick={() => copy(t.text, t.id)}
-                className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-full border border-border/50 hover:border-yellow-400/40 transition-colors text-muted-foreground hover:text-yellow-400">
-                {copied === t.id ? <CheckCheck className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
-                {copied === t.id ? 'Copied!' : 'Copy'}
-              </button>
-            </div>
-            <pre className="text-xs text-muted-foreground p-4 whitespace-pre-wrap leading-relaxed font-body">{t.text}</pre>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function PartnerCarousel({ partner }) {
-  const [tab, setTab] = useState('pitch');
   const [idx, setIdx] = useState(0);
   const slides = partner.carousel;
   const color = partner.color;
 
   return (
     <div className="rounded-2xl border overflow-hidden" style={{ borderColor: `${color}30` }}>
-      {/* Tab bar */}
-      <div className="flex border-b" style={{ borderColor: `${color}20`, background: `${color}08` }}>
-        <button onClick={() => setTab('pitch')}
-          className="flex-1 text-xs font-bold tracking-widest uppercase px-4 py-2.5 transition-colors"
-          style={{ color: tab === 'pitch' ? color : '#94a3b8', borderBottom: tab === 'pitch' ? `2px solid ${color}` : '2px solid transparent' }}>
-          Value Props
+      <div className="relative overflow-hidden" style={{ minHeight: 110 }}>
+        <AnimatePresence mode="wait">
+          <motion.div key={idx}
+            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
+            className="p-5">
+            <div className="font-display font-black text-lg mb-1.5" style={{ color }}>{slides[idx].headline}</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">{slides[idx].body}</p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className="flex items-center justify-between px-4 py-2 border-t" style={{ borderColor: `${color}20` }}>
+        <button onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
+          className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
+          <ChevronLeft className="w-3 h-3" /> Prev
         </button>
-        <button onClick={() => setTab('outreach')}
-          className="flex-1 text-xs font-bold tracking-widest uppercase px-4 py-2.5 transition-colors"
-          style={{ color: tab === 'outreach' ? color : '#94a3b8', borderBottom: tab === 'outreach' ? `2px solid ${color}` : '2px solid transparent' }}>
-          📡 Outreach
+        <div className="flex items-center gap-1.5">
+          {slides.map((_, i) => (
+            <button key={i} onClick={() => setIdx(i)}
+              className="w-1.5 h-1.5 rounded-full transition-all"
+              style={{ background: i === idx ? color : 'rgba(255,255,255,0.2)' }} />
+          ))}
+        </div>
+        <button onClick={() => setIdx((idx + 1) % slides.length)}
+          className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
+          Next <ChevronRight className="w-3 h-3" />
         </button>
       </div>
-
-      <AnimatePresence mode="wait">
-        {tab === 'pitch' ? (
-          <motion.div key="pitch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-            <div className="relative overflow-hidden" style={{ minHeight: 110 }}>
-              <AnimatePresence mode="wait">
-                <motion.div key={idx}
-                  initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}
-                  className="p-5">
-                  <div className="font-display font-black text-lg mb-1.5" style={{ color }}>{slides[idx].headline}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{slides[idx].body}</p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            <div className="flex items-center justify-between px-4 py-2 border-t" style={{ borderColor: `${color}20` }}>
-              <button onClick={() => setIdx((idx - 1 + slides.length) % slides.length)}
-                className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
-                <ChevronLeft className="w-3 h-3" /> Prev
-              </button>
-              <div className="flex items-center gap-1.5">
-                {slides.map((_, i) => (
-                  <button key={i} onClick={() => setIdx(i)}
-                    className="w-1.5 h-1.5 rounded-full transition-all"
-                    style={{ background: i === idx ? color : 'rgba(255,255,255,0.2)' }} />
-                ))}
-              </div>
-              <button onClick={() => setIdx((idx + 1) % slides.length)}
-                className="flex items-center gap-1 text-xs font-bold" style={{ color: `${color}80` }}>
-                Next <ChevronRight className="w-3 h-3" />
-              </button>
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div key="outreach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-            <OutreachTab partner={partner} />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
@@ -1213,8 +1146,7 @@ export default function InvestorPitch() {
         })}
       </div>
 
-      {/* Outreach Strategy */}
-      <OutreachStrategy residentCount={residentCount} />
+
 
       {/* Coalition footer */}
       <div className="glass rounded-3xl p-8 border border-primary/20 text-center">
@@ -1266,116 +1198,6 @@ function IslandSection() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
-  );
-}
-
-function OutreachStrategy({ residentCount }) {
-  const [open, setOpen] = useState(null);
-
-  const strategies = [
-    {
-      id: 'demo_link', icon: Globe, color: '#3B82F6',
-      title: 'Send the Private Demo Link',
-      subtitle: 'The most powerful first impression you can make.',
-      steps: [
-        'Share the /demo-access URL directly — no public post, no mass email. One link, one person, with their name in the message.',
-        'Use the phrase: "This was built for a specific tier of person. I think you\'re one of them."',
-        'Include the access key in a separate message — creates intrigue and filters for follow-through.',
-        'The demo page itself names them among the chosen. That\'s intentional. They\'ll feel it.',
-      ],
-    },
-    {
-      id: 'warm_intro', icon: Phone, color: '#a78bfa',
-      title: 'Get a Warm Introduction',
-      subtitle: 'Cold messages get read. Warm intros get meetings.',
-      steps: [
-        'For Elon: route through David Sacks (DOGE AI czar) or any Neuralink/SpaceX-adjacent contact.',
-        'For Peter Thiel: reach via Founders Fund LP network or a Palantir connection.',
-        'For Larry Fink: reach via a BlackRock institutional LP or any major sovereign wealth fund contact.',
-        'For a16z: submit to their American Dynamism portfolio page — they actively look for this.',
-        'For Trump / White House: route through DOGE or a congressional office. Ezra Cohen-Watnick, Brendan Carr.',
-        'For Ray Dalio: reach through Bridgewater Associates or any macro hedge fund network.',
-        'For Schwarzman: Blackstone portfolio companies or any major PE LP relationship.',
-      ],
-    },
-    {
-      id: 'viral_hook', icon: Twitter, color: '#F59E0B',
-      title: 'Create a Viral Hook Moment',
-      subtitle: 'Make them come to you.',
-      steps: [
-        'Post a 60-second video: "What if instead of $64,000/person on shelters, we spent $3,840 and they left with a job, savings, and a skill — from a US-controlled island?" — just data.',
-        'Tag the right people without asking for anything. Curiosity drives clicks.',
-        'Get the landing page link in comments before the post goes viral — not after.',
-        'X/Twitter thread with the cost comparison data tends to get picked up by tech press without prompting.',
-        'A Vieques site visit video — drone footage of the island — is the single most shareable asset you can produce.',
-      ],
-    },
-    {
-      id: 'conference', icon: Send, color: '#22C55E',
-      title: 'Appear Where They Are',
-      subtitle: 'Physical presence still beats digital reach.',
-      steps: [
-        'Davos, TED, SXSW, and the All-In Summit are where all of these people converge.',
-        'Prepare a 3-minute verbal pitch: "I\'m building a crypto-incentivized island city for homeless Americans. $320/month. 94% employment target. Needs your name on it."',
-        'Have the demo link in your phone. Demo playing before they finish saying hello.',
-        'For government contacts: request a meeting through their public scheduling office — subject: "DOGE-Aligned Homelessness Solution — 15 Minutes."',
-        'For Larry Fink and Schwarzman: Bloomberg Global Finance Conference and Milken Institute Global Conference are annual touchpoints.',
-      ],
-    },
-  ];
-
-  return (
-    <div className="glass rounded-3xl p-6 md:p-10 border border-border/50">
-      <div className="mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black tracking-widest mb-3">
-          📡 OUTREACH PLAYBOOK
-        </div>
-        <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-2">
-          HOW TO MAKE SURE THEY <span className="text-gradient-blue">ALL SEE THIS.</span>
-        </h2>
-        <p className="text-muted-foreground max-w-2xl leading-relaxed">
-          The demo exists. The pitch is built. The island is chosen. The only question is delivery.
-          <strong className="text-foreground"> Not because we're playing games. Because {residentCount !== null ? residentCount.toLocaleString() : '...'} people are on the island today, and 650,000 are waiting.</strong>
-        </p>
-      </div>
-      <div className="space-y-3">
-        {strategies.map((s, i) => {
-          const isOpen = open === s.id;
-          return (
-            <motion.div key={s.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 }}
-              className="glass rounded-2xl border border-border/40 overflow-hidden">
-              <button className="w-full flex items-center gap-4 px-5 py-4 text-left" onClick={() => setOpen(isOpen ? null : s.id)}>
-                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${s.color}20`, border: `1px solid ${s.color}40` }}>
-                  <s.icon className="w-4 h-4" style={{ color: s.color }} />
-                </div>
-                <div className="flex-1">
-                  <div className="font-display font-bold text-lg text-foreground">{s.title}</div>
-                  <div className="text-xs text-muted-foreground">{s.subtitle}</div>
-                </div>
-                {isOpen ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
-              </button>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-                    <div className="px-5 pb-5 border-t border-border/30 pt-4">
-                      <ol className="space-y-3">
-                        {s.steps.map((step, j) => (
-                          <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
-                            <span className="font-display font-black text-sm flex-shrink-0 mt-0.5" style={{ color: s.color }}>{j + 1}.</span>
-                            {step}
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
-      </div>
     </div>
   );
 }
