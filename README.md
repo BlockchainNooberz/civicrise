@@ -1,39 +1,40 @@
-**Welcome to your Base44 project** 
+# CivicRise 🏛️
 
-**About**
+> AI-powered civic engagement and community empowerment platform
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+CivicRise is a full-stack application built on Base44 that connects citizens with local government, community initiatives, and civic resources. It leverages AI to surface relevant opportunities for civic participation and streamline community-driven projects.
 
-This project contains everything you need to run your app locally.
+## Features
+- 🗳️ **Civic Action Hub** — discover local initiatives, petitions, and volunteer opportunities
+- 📊 **Community Dashboard** — real-time tracking of neighborhood projects and government proposals
+- 🤖 **AI-Powered Matching** — connect citizens with causes aligned to their interests and skills
+- 📣 **Outreach Tools** — automated communication flows for community organizers
+- 📍 **Geolocation Layer** — hyperlocal filtering for city, district, and neighborhood-level actions
 
-**Edit the code in your local development environment**
+## Tech Stack
+- **Frontend:** React / Base44 UI
+- **Backend:** Base44 serverless functions
+- **Database:** Base44 entity system
+- **AI:** LLM-powered recommendation and summarization engine
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+## Use Cases
+- Local government modernization
+- Nonprofit community organizing
+- Political campaign volunteer coordination
+- NGO field operations management
 
-**Prerequisites:** 
-
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
-
+## Getting Started
+```bash
+git clone https://github.com/BlockchainNooberz/civicrise
+cd civicrise
+npm install
+npm run dev
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
-```
+## About the Developer
+Built by **Andrew Elston** — developer, entrepreneur, and builder of AI-native applications.
+- GitHub: [BlockchainNooberz](https://github.com/BlockchainNooberz)
+- Contact: andrewelston177@gmail.com
 
-Run the app: `npm run dev`
-
-**Publish your changes**
-
-Open [Base44.com](http://Base44.com) and click on Publish.
-
-**Docs & Support**
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+---
+*Part of a broader portfolio of AI-powered civic, financial, and humanitarian tools.*
